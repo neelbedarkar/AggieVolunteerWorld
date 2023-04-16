@@ -25,7 +25,8 @@
   margin-right: -100px;
 }
 
-
+.mydiv { display: inline; }
+.hidden{ display: none; }
 
 </style>
 </head>
@@ -35,7 +36,7 @@
         <div class="container-fluid">
             <!-- Logo and Tagline -->
             <a class="navbar-brand" href="#">
-                <img src="logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
+                <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
                 <h5 style="display:inline"> Aggie Volunteer World </h5>
                 <br>
                 <div class="fs-6">A place to find volunteers and opportunities</div>
@@ -48,13 +49,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discover Opportunities</a>
+                        <a class="nav-link active" aria-current="page" href="/discover_opportunities">Discover Opportunities</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
@@ -73,7 +74,7 @@
 
 <div class="container mt-3">
   <nav aria-label="breadcrumb">
-    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+    <ol class="breadcrumb breadcrumb-chevron pt-3 pb-3 bg-body-tertiary rounded-3">
       <li class="breadcrumb-item">
         <a class="link-body-emphasis" href="#">
           <svg class="bi" width="16" height="16"><use xlink:href="#house-door-fill"></use></svg>
@@ -89,9 +90,16 @@
     </ol>
   </nav>
     <div class="row">
-      <div class="col-md-2 border">
+      <div class="col-md-2 mb-3">
+          <div class="btn btn-primary w-100 d-sm-block d-md-none" data-bs-toggle="collapse" data-bs-target="#filterForm" aria-expanded="true" aria-controls="filterForm">
+    <i class="bi bi-funnel"></i> Filters
+  </div>
+          <div class="rounded-2 bg-primary p-2 w-100  d-none d-md-block text-white" id="big-screen">
+    <i class="bi bi-funnel"></i> Filters
+  </div>
+
         <!-- Filters Section -->
-        <form>
+        <form class="p-1 collapse show" id="filterForm">
           <div class="mb-3">
             <label for="search" class="form-label">Search</label>
             <input type="text" class="form-control" id="search" placeholder="Keywords...">
@@ -122,10 +130,10 @@
           <div class="mb-3">
             <label for="time-commitment" class="form-label">Time Commitment</label>
             <select class="form-select" id="time-commitment">
-              <option value="">Select Time Commitment...</option>
-              <option value="full-day">Full Day</option>
-              <option value="half-day">Half Day</option>
-              <option value="hours">Hours</option>
+              <option value="">No. of Hours...</option>
+              <option value="full-day">Full Day (8 hours)</option>
+              <option value="half-day">Half Day (4 hours)</option>
+              <option value="hours"><2 Hours</option>
             </select>
           </div>
           <div class="mb-3">
@@ -137,17 +145,19 @@
               <option value="multi-week">Multi-Week</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary">Filter</button>
+          <button type="submit" class="btn btn-primary" value="apply">Apply</button>
+            <button type="submit" class="btn btn-secondary" value="filter">Clear</button>
         </form>
       </div>    
               <div class="col-md-4 mb-3">
         <!-- Opportunities List Section -->
           <ul id="opportunities-list" class="list-group">
           <li class="list-group-item active">Opportunities</li>
-          <div id="leftlist">
-           
+          <div id="leftlist">           
         {% for opportunity in opportunities %}
-            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <li class="list-group-item list-group-item-action d-flex justify-content-between
+            align-items-center "
+            data-opportunity-id="{{ loop.index0 }}">
             <div>
               <h5 class="mb-1">{{ opportunity.opportunity_name }}</h5>
               <p class="mb-1">{{ opportunity.org_name }}</p>
@@ -155,10 +165,11 @@
             <span class="badge bg-info rounded-pill">{{ opportunity.time_commitment }}</span>
           </li>
         {% endfor %}
+          </div>
       </ul>
 
     <nav aria-label="Opportunities pagination">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center mt-2 mb-0">
     {% if page > 1 %}
       <li class="page-item"><a class="page-link" href="?page={{ page - 1 }}">Previous</a></li>
     {% else %}
@@ -212,37 +223,52 @@
     {% else %}
       <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
     {% endif %}
- 
+  </ul>
+    </nav>
       
     </div>
-     <div  id="opportunity-details" class="col-md-6 card mb-3 border hidden-md-down">            
+        <div  id="opportunity-details-placeholder" class="col-md-6 card mb-3 border p-0 ">
+    <div class="rounded-2 bg-primary p-2 w-100 text-white"> Opportunity Details</div>
+        <p class="fw-lighter">Click on an opportunity to reveal more information</p>
+        </div>
+     <div  id="opportunity-details" class="col-md-6 card mb-3 border hidden">
   <div class="card-body">
-    <h4>Opportunity Name</h4>
-    <div class="row mb-3">
-      <div class="col-2">
-        <img src="path/to/logo.png" alt="Logo" class="img-fluid rounded">
-      </div>
-      <div class="col-10">
-        <h5 class="card-title mb-1" id="opportunity-details-title"></h5>
-        <p class="card-text mb-0" id="opportunity-details-location"><i class="bi bi-geo-alt me-1"></i>Location of opportunity</p>
-        <button type="button" class="btn btn-outline-danger rounded-circle float-end" data-bs-toggle="button"><i class="bi bi-heart"></i></button>
-      </div>
+  <h4 id="opportunity-title" class="text-center mb-4">Click on an opportunity to reveal more information</h4>
+  <div class="row mb-3 align-items-center">
+    <div class="col-2">
+      <img src="path/to/logo.png" alt="Logo" class="img-fluid rounded" id="opportunity-logo">
     </div>
-    <div class="row mb-3">
-      <div class="col">
-        <p class="card-text mb-0"><strong>Duration:</strong> 1 week</p>
+    <div class="col-10">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-1" id="opportunity-org-title"></h5>
+        <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="button"><i class="bi bi-heart"></i></button>
       </div>
-      <div class="col">
-        <p class="card-text mb-0"><strong>Dates:</strong> April 30 - May 7, 2023</p>
-      </div>
+      <p class="card-text mb-0"><i class="bi bi-geo-alt me-1"></i><span id="opportunity-details-location">Locations </span></p>
     </div>
-    <p class="card-text mb-3"><strong>Cause:</strong> Cause of the opportunity</p>
-    <p class="card-text mb-3"><strong>Address:</strong> Address of the opportunity</p>
-    <p class="card-text mb-3" id="opportunity-details-description">Description of activity</p>
-    <a href="#" class="btn btn-primary">Apply</a>  
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <p class="card-text mb-0"><strong>Time Commitment</strong> <span id="opportunity-details-time_commitment"> 1 week </span> </p>
+    </div>
+    <div class="col">
+      <p class="card-text mb-0"><strong>Dates:</strong> <span id="opportunity-details-dates"> April 30 - May 7, 2023 </span></p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <p class="card-text mb-0"><strong>Duration</strong> <span id="opportunity-details-duration">1 Week </span> </p>
+    </div>
+    <div class="col">
+        <p class="card-text mb-0"><strong>Cause:</strong> <span id="opportunity-details-cause"> Cause of the opportunity </span> </p>
+    </div>
+  </div>
+
+  <p class="card-text mb-3" id="opportunity-details-description">Description of activity</p>
+  <div class="d-grid gap-2">
+    <a href="#" class="btn btn-primary">Apply</a>
+  </div>
 </div>
-    
-    
     </div>
   </div>
 </div>
@@ -250,12 +276,166 @@
 <!-- Bootstrap Bundle with Popper and jQuery -->
 <script src="../static/js/bootstrap.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<div id="sizer">
+    <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none" data-size="xs"></div>
+    <div class="d-none d-sm-block d-md-none d-lg-none d-xl-none" data-size="sm"></div>
+    <div class="d-none d-sm-none d-md-block d-lg-none d-xl-none" data-size="md"></div>
+    <div class="d-none d-sm-none d-md-none d-lg-block d-xl-none" data-size="lg"></div>
+    <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block" data-size="xl"></div>
+</div>
+<div class="modal fade modal-fullscreen" id="opportunity-modal" data-bs-backdrop="static"
+     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal-opportunity-title">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<div class ="card">
+  <div class="card-body">
+  <div class="row mb-3 align-items-center">
+    <div class="col-2">
+      <img src="" alt="Logo" class="img-fluid rounded" id="modal-opportunity-logo">
+    </div>
+    <div class="col-10">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-1" id="modal-opportunity-org-title"></h5>
+        <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="button"><i class="bi bi-heart"></i></button>
+      </div>
+      <p class="card-text mb-0"><i class="bi bi-geo-alt me-1"></i><span id="modal-opportunity-details-location">Locations </span></p>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <p class="card-text mb-0"><strong>Time Commitment</strong> <span id="modal-opportunity-details-time_commitment"> 1 week </span> </p>
+    </div>
+    <div class="col">
+      <p class="card-text mb-0"><strong>Dates:</strong> <span id="modal-opportunity-details-dates"> April 30 - May 7, 2023 </span></p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <p class="card-text mb-0"><strong>Duration</strong> <span id="modal-opportunity-details-duration">1 Week </span> </p>
+    </div>
+    <div class="col">
+        <p class="card-text mb-0"><strong>Cause:</strong> <span id="modal-opportunity-details-cause"> Cause of the opportunity </span> </p>
+    </div>
+  </div>
+
+  <p class="card-text mb-3" id="modal-opportunity-details-description">Description of activity</p>
+</div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#" class="btn btn-primary">Apply</a>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
-  
+// Function to add parameters to the URL and submit the form
+function addParameters() {
+  // Get the form values
+  const search = document.getElementById('search').value;
+  const cause = document.getElementById('cause').value;
+  const location = document.getElementById('location').value;
+  const timeCommitment = document.getElementById('time-commitment').value;
+  const duration = document.getElementById('duration').value;
+
+  // Create the URL with the parameters
+  const url = `/discover_opportunities?search=${search}&cause=${cause}&location=${location}&time_commitment=${timeCommitment}&duration=${duration}`;
+
+  // Redirect to the URL
+  window.location.href = url;
+}
+
+// Function to remove parameters from the URL and submit the form
+function removeParameters() {
+  // Create the URL without parameters
+  const url = '/discover_opportunities';
+
+  // Redirect to the URL
+  window.location.href = url;
+}
+
+// Get the form element
+const form = document.getElementById('filterForm');
+
+// Add event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  const buttonValue = event.submitter.value;
+
+  if (buttonValue === 'apply') {
+    addParameters();
+  } else if (buttonValue === 'filter') {
+    removeParameters();
+  }
+});
+
+$(document).ready(function() {
+var screen_size = $('#sizer').find('div:visible').data('size');
+  if (screen_size == "sm" || screen_size == "xs")
+   {
+  console.log("Small Screen hiding placeholder")
+$("#opportunity-details-placeholder").addClass('hidden');
+$("#filterForm").removeClass('show');
+
+  }
+  var params = new URLSearchParams(window.location.search);
+
+  $("#search").val(params.get('search'));
+  $("#cause").val(params.get('cause'));
+  $("#location").val(params.get('location'));
+  $("#time-commitment").val(params.get('time_commitment'));
+  $("#duration").val(params.get('duration'));
+
+
+});
+
   $("#leftlist > li").click(function(event){
   event.preventDefault();
   $("#leftlist > li").removeClass("active");
   $(this).addClass("active");
+  var opportunity_id = this.dataset.opportunityId
+  var opportunities = {{ opportunities|tojson }};
+  var opportunity = opportunities[opportunity_id];
+  var screen_size = $('#sizer').find('div:visible').data('size');
+  if (screen_size == "sm" || screen_size == "xs")
+   {
+   var modal = document.getElementById("opportunity-modal");
+    $(modal).modal('toggle');
+      // replace placeholders in opportunity details section
+  $("#modal-opportunity-logo").attr("src", opportunity.logo_path);
+  $("#modal-opportunity-title").text(opportunity.opportunity_name);
+  $("#modal-opportunity-org-title").text(opportunity.org_name);
+  $("#modal-opportunity-details-location").text(opportunity.location);
+  $("#modal-opportunity-details-description").text(opportunity.description);
+  $("#modal-opportunity-details-time_commitment").text(opportunity.time_commitment);
+  $("#modal-opportunity-details-duration").text(opportunity.duration);
+  $("#modal-opportunity-details-dates").text(opportunity.dates);
+  $("#modal-opportunity-details-cause").text(opportunity.cause);
+   }
+    else{
+  // replace placeholders in opportunity details section
+  $("#opportunity-details-placeholder").removeClass('hidden');
+  $("#opportunity-details-placeholder").addClass('hidden');
+  $("#opportunity-details").removeClass('hidden');
+  $("#opportunity-logo").attr("src", opportunity.logo_path);
+  $("#opportunity-title").text(opportunity.opportunity_name);
+  $("#opportunity-org-title").text(opportunity.org_name);
+  $("#opportunity-details-location").text(opportunity.location);
+  $("#opportunity-details-description").text(opportunity.description);
+  $("#opportunity-details-time_commitment").text(opportunity.time_commitment);
+  $("#opportunity-details-duration").text(opportunity.duration);
+  $("#opportunity-details-dates").text(opportunity.dates);
+  $("#opportunity-details-cause").text(opportunity.cause);
+    }
 
 
   });
@@ -264,47 +444,6 @@
   
 </script>
 <script src="../assets/js/main.js"></script>
-<style>
-  /* Hide the opportunity details card by default */
-  /*#opportunity-details {
-    display: none;
-  }*/
-</style>
 
-<script>
-  // // Get the necessary HTML elements
-  // const form = document.querySelector('form');
-  // const keywordInput = document.querySelector('#keyword-input');
-  // const causeSelect = document.querySelector('#cause-select');
-  // const locationSelect = document.querySelector('#location-select');
-  // const timeCommitmentSelect = document.querySelector('#time-commitment-select');
-  // const durationSelect = document.querySelector('#duration-select');
-  // const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
-  // const opportunityDetailsTitle = document.querySelector('#opportunity-details-title');
-  // const opportunityDetailsDescription = document.querySelector('#opportunity-details-description');
-  // const opportunityDetailsCard = document.querySelector('#opportunity-details');
-
-  // // Add an event listener to the form to handle filtering
-  // form.addEventListener('submit', e => {
-  //   e.preventDefault();
-  //   // Implement filtering logic here using the selected filters
-  // });
-
-  // // Add an event listener to each View Details button to display the opportunity details
-  // viewDetailsBtns.forEach(btn => {
-  //   btn.addEventListener('click', e => {
-  //     // Get the description from the data-description attribute of the button
-  //     const description = e.target.getAttribute('data-description');
-  //     // Get the organization name and opportunity title from the previous siblings of the button
-  //     const organizationName = e.target.previousElementSibling.previousElementSibling.textContent.trim();
-  //     const opportunityTitle = e.target.previousElementSibling.textContent.trim();
-  //     // Update the opportunity details card with the selected opportunity's information
-  //     opportunityDetailsTitle.textContent = `${organizationName} - ${opportunityTitle}`;
-  //     opportunityDetailsDescription.textContent = description;
-  //     // Display the opportunity details card
-  //     opportunityDetailsCard.classList.remove('d-none');
-  //   });
-  // });
-</script>
 </body>
 </html>

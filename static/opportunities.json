@@ -1,0 +1,114 @@
+{
+  "opportunities": [
+    {
+      "opportunity_name": "Beach Cleanup Crew",
+      "time_commitment": "Half Day",
+      "org_name": "Ocean Conservancy",
+      "logo_path":"/static/images/logo1.png", 
+      "description": "Join our team for a morning of beach cleanup and help protect the beautiful coastline. Gloves, bags, and water will be provided. All ages are welcome!",
+      "location": "Galveston Beach, Galveston, TX 77550",
+      "duration": "One-Day",
+      "dates": "August 17th, 2023",
+      "cause": "Environment"
+    },
+    {
+      "opportunity_name": "Tutoring for High School Students",
+      "time_commitment": "Less than 2 hours",
+      "org_name": "High School Tutoring Program",
+      "logo_path":"/static/images/logo2.png", 
+      "description": "Volunteer to tutor high school students in Math, Science, English or Social Studies. No prior experience is required.",
+      "location": "Bryan High School, Bryan, TX 77802",
+      "duration": "One-Day",
+      "dates": "May 25th, 2023",
+      "cause": "Education"
+    },
+    {
+      "opportunity_name": "Graduate Student Event Volunteer",
+      "time_commitment": "Full Day",
+      "org_name": "Texas A&M Graduate Student Association",
+      "logo_path":"/static/images/logo3.png", 
+      "description": "Volunteer for the Graduate Student Association events, including Grad Camp and Grad Ball. Help with set up, check-in, and other tasks as needed.",
+      "location": "Texas A&M University, College Station, TX 77843",
+      "duration": "One-Day",
+      "dates": "July 10th, 2023",
+      "cause": "Higher Education"
+    },
+    {
+      "opportunity_name": "DEI Conference Volunteer",
+      "time_commitment": "Full Day",
+      "org_name": "Texas A&M Diversity, Equity and Inclusion Office",
+      "logo_path":"/static/images/logo4.png", 
+      "description": "Volunteer for the DEI Conference and help with registration, directing attendees, and other tasks as needed.",
+      "location": "Rudder Tower, Texas A&M University, College Station, TX 77843",
+      "duration": "One-Day",
+      "dates": "June 22nd, 2023",
+      "cause": "Human Rights"
+    },
+    {
+      "opportunity_name": "Undergraduate Food Drive Volunteer",
+      "time_commitment": "Half Day",
+      "org_name": "Aggie Food Drive",
+      "logo_path":"/static/images/logo5.png", 
+      "description": "Volunteer for the Aggie Food Drive and help collect non-perishable food items from the local community. All donations will be given to the Brazos Valley Food Bank.",
+      "location": "Memorial Student Center, Texas A&M University, College Station, TX 77843",
+      "duration": "One-Day",
+      "dates": "July 13th, 2023",
+      "cause": "Poverty"
+    },
+    {
+    "opportunity_name": "Volunteer at Animal Shelter",
+    "time_commitment": "Full Day",
+    "org_name": "Brazos Valley Animal Shelter",
+    "logo_path":"/static/images/logo6.png", 
+    "description": "Spend a full day with the animals at the Brazos Valley Animal Shelter! You'll help feed and care for dogs and cats, as well as assist with adoption events. No experience necessary!",
+    "location": "2401 S Loop 281, Longview, TX 75605",
+    "duration": "One-Day",
+    "dates": "August 17th, 2023",
+    "cause": "Animals"
+  },
+  {
+    "opportunity_name": "Tutor High School Students",
+    "time_commitment": "Less than 2-hours",
+    "org_name": "Bryan ISD",
+    "logo_path":"/static/images/logo7.png", 
+    "description": "Make a difference in the lives of high school students in Bryan by volunteering as a tutor. You'll help students with their homework, study for exams, and provide academic support.",
+    "location": "3450 Campus Dr, Bryan, TX 77802",
+    "duration": "One-week",
+    "dates": "July 23rd - July 27th, 2023",
+    "cause": "Education"
+  },
+  {
+    "opportunity_name": "Community Garden Helper",
+    "time_commitment": "Half Day",
+    "org_name": "Brazos Valley Food Bank",
+    "logo_path":"/static/images/logo8.png", 
+    "description": "Join us in the Brazos Valley Food Bank's community garden and help us grow fresh produce for families in need. You'll plant and harvest vegetables, as well as maintain the garden.",
+    "location": "1501 Independence Ave, Bryan, TX 77803",
+    "duration": "Multi-week",
+    "dates": "June 5th - July 31st, 2023",
+    "cause": "Environment"
+  },
+  {
+    "opportunity_name": "Food Bank Assistant",
+    "time_commitment": "Full Day",
+    "org_name": "Houston Food Bank",
+    "logo_path":"/static/images/logo9.png", 
+    "description": "Volunteer with the Houston Food Bank and help fight hunger in our community. You'll sort and pack food donations, as well as assist with distribution events. Lunch provided!",
+    "location": "535 Portwall St, Houston, TX 77029",
+    "duration": "Multi-week",
+    "dates": "June 1st - August 31st, 2023",
+    "cause": "Poverty"
+  },
+  {
+    "opportunity_name": "Fundraising Event Organizer",
+    "time_commitment": "Less than 2-hours",
+    "org_name": "American Cancer Society",
+    "logo_path":"/static/images/logo10.png", 
+    "description": "Help us plan and organize our annual fundraising event for the American Cancer Society. You'll assist with logistics, marketing, and day-of coordination. Great opportunity for event planning experience!",
+    "location": "3800 State Hwy 6 S, College Station, TX 77845",
+    "duration": "One-week",
+    "dates": "July 16th - July 20th, 2023",
+    "cause": "Health"
+  }
+  ]
+}
