@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'AggieVolunteerWorld'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6694BDB53BB64962AAABF9327766298F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1DF54FF978C9404D8B395DCF8F41F838 }}
