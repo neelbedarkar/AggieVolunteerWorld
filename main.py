@@ -3,9 +3,8 @@ import json
 app = Flask(__name__)
 
 
-
 @app.route("/discover_opportunities")
-def index():
+def discover():
     # extract data from JSON
     with open('static/opportunities.json') as f:
         items = json.load(f)['opportunities']
@@ -25,6 +24,11 @@ def index():
 
     page_range = [x for x in range(1, number_of_pages + 1)]
     return render_template("discover_opportunities.html", opportunities=current_items, page=page, per_page=per_page, num_pages=number_of_pages, page_range=page_range)
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
