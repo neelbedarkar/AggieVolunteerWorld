@@ -35,7 +35,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-success">
         <div class="container-fluid">
             <!-- Logo and Tagline -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
                 <h5 style="display:inline"> Aggie Volunteer World </h5>
                 <br>
@@ -60,9 +60,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/help">Help</a>
                     </li>
-                    <li class="nav-item">
+                   {% if session.username %}
+      <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+   {% else %}
+      <li class="nav-item">
                         <a class="nav-link" href="/login">Login / Sign Up</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -76,8 +82,8 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-chevron pt-3 pb-3 bg-body-tertiary rounded-3">
       <li class="breadcrumb-item">
-        <a class="link-body-emphasis" href="#">
-          <svg class="bi" width="16" height="16"><use xlink:href="#house-door-fill"></use></svg>
+        <a class="link-body-emphasis" href="/">
+          <i class="bi bi-house-fill"></i>
           <span class="visually-hidden">Home</span>
         </a>
       </li>
@@ -106,23 +112,24 @@
             <label for="cause" class="form-label">Cause</label>
             <select class="form-select" id="cause">
               <option value="">Select a Cause...</option>
-              <option value="animals">Animals</option>
-              <option value="education">Education</option>
-              <option value="environment">Environment</option>
-              <option value="health">Health</option>
-              <option value="homelessness">Homelessness</option>
-              <option value="human-rights">Human Rights</option>
-              <option value="poverty">Poverty</option>
+              <option value="Animals">Animals</option>
+              <option value="Education">Education</option>
+              <option value="Environment">Environment</option>
+              <option value="Health">Health</option>
+              <option value="Homelessness">Homelessness</option>
+              <option value="Human Rights">Human Rights</option>
+              <option value="Poverty">Poverty</option>
             </select>
           </div>
           <div class="mb-3">
             <label for="location" class="form-label">Location</label>
             <select class="form-select" id="location">
               <option value="">Select a Location...</option>
-              <option value="bryan">Bryan</option>
-              <option value="college-station">College Station</option>
-              <option value="navasota">Navasota</option>
-              <option value="houston">Houston</option>
+              <option value="Bryan">Bryan</option>
+              <option value="College Station">College Station</option>
+              <option value="Navasota">Navasota</option>
+              <option value="Houston">Houston</option>
+                <option value="Houston">Galveston</option>
             </select>
           </div>
           <div class="mb-3">
@@ -138,9 +145,9 @@
             <label for="duration" class="form-label">Duration</label>
             <select class="form-select" id="duration">
               <option value="">Select Duration...</option>
-              <option value="one-day">One Day</option>
-              <option value="one-week">One Week</option>
-              <option value="multi-week">Multi-Week</option>
+              <option value="One Day">One Day</option>
+              <option value="One Week">One Week</option>
+              <option value="Multi-Week">Multi-Week</option>
             </select>
           </div>
           <button type="submit" class="btn btn-success" value="apply">Apply</button>
@@ -160,7 +167,7 @@
               <h5 class="mb-1">{{ opportunity.opportunity_name }}</h5>
               <p class="mb-1">{{ opportunity.org_name }}</p>
             </div>
-            <span class="badge bg-info rounded-pill">{{ opportunity.time_commitment }}</span>
+            <span class="badge bg-warning rounded-pill">{{ opportunity.time_commitment }}</span>
           </li>
         {% endfor %}
           </div>
@@ -264,13 +271,64 @@
 
   <p class="card-text mb-3" id="opportunity-details-description">Description of activity</p>
   <div class="d-grid gap-2">
-    <a href="#" class="btn btn-success">Apply</a>
+
+      <a class="btn btn-success" data-bs-toggle="modal" href="#applyModalToggle" role="button">Apply</a>
+
   </div>
 </div>
     </div>
   </div>
 </div>
+<div class="modal fade" id="applyModalToggle" tabindex="-1" aria-labelledby="applyModalToggle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Apply for this opportunity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>Sent the organization a personal message about why you'd be a good fit.</p>
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Subject:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+            <div class="mb-3">
+  <label for="formFile" class="form-label">Upload your resume or other related documents</label>
+  <input class="form-control" type="file" id="formFileMultiple">
+</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="liveToastBtn">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+
+      <strong class="me-auto">Aggie Volunteer World</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      You've applied to volunteer for the event. More information will be available in the email sent to {% if session.email %}
+      {{ session.email }}
+   {% else %}
+      you.
+   {% endif %}
+    </div>
+  </div>
+</div>
 <!-- Bootstrap Bundle with Popper and jQuery -->
 <script src="../static/js/bootstrap.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -334,7 +392,16 @@
     </div>
   </div>
 </div>
+    <script>
+$(document).ready(function(){
+    $("#liveToastBtn").click(function(){
+
+        $("#liveToast").toast("show");
+    });
+});
+</script>
 <script type="text/javascript">
+
 // Function to add parameters to the URL and submit the form
 function addParameters() {
   // Get the form values
@@ -399,7 +466,9 @@ $("#filterForm").removeClass('show');
   $("#leftlist > li").click(function(event){
   event.preventDefault();
   $("#leftlist > li").removeClass("active");
+
   $(this).addClass("active");
+
   var opportunity_id = this.dataset.opportunityId
   var opportunities = {{ opportunities|tojson }};
   var opportunity = opportunities[opportunity_id];

@@ -32,15 +32,15 @@
 <body>
     <!-- Navigation Menu -->
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light border-bottom border-primary-subtle">
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
         <div class="container-fluid">
             <!-- Logo and Tagline -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
                 <h5 style="display:inline"> Aggie Volunteer World </h5>
                 <br>
                 <div class="fs-6">A place to find volunteers and opportunities</div>
-                
+
             </a>
             <!-- Menu Links -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,20 +49,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="/about_us">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discover Opportunities</a>
+                        <a class="nav-link" href="/discover_opportunities">Discover Opportunities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="/help">Help</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login / Sign Up</a>
+                     {% if session.username %}
+      <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
                     </li>
+   {% else %}
+      <li class="nav-item">
+                        <a class="nav-link" href="/login">Login / Sign Up</a>
+                    </li>
+   {% endif %}
+
                 </ul>
             </div>
         </div>
@@ -81,8 +88,8 @@
 </div>
         <p class="fs-4">Aggie Volunteer World is a platform that helps you find and share volunteer opportunities.
         <br> Join us now to make a positive impact in your community. </p>
-        <button class="btn btn-info btn-lg" type="button">Learn More</button>
-        <button class="btn btn-primary btn-lg" type="button">Get Started</button>
+        <a class="btn btn-warning btn-lg" href="/help" type="button">Learn More</a>
+        <a class="btn btn-success btn-lg" href="/discover_opportunities" type="button">Get Started</a>
       </div>
     </div>
 
@@ -91,7 +98,7 @@
 
         <!-- Search Bar and Learn More Button -->
         <div class="row mb-5 gy-5">
-            <div class="col-md-6 bg-primary">
+            <div class="col-md-6 bg-success">
             	<div class="me-md-2 pt-2 px-2 pt-md-2 px-md-2 text-center text-white overflow-hidden">
       <div class="my-3 py-3">
           <div class="section-header">
@@ -101,31 +108,29 @@
       </div>
          
 
-    
-            	<form class="row g-3 pb-5">
-                <div class="input-group">
-                	<div class="col-md-5 p-1">
-                    <input type="text" class="form-control col-md-3" placeholder="search">
-                	</div>               
-                	<div class="col-md-1 py-1 p-">
-                	  
-                	  	  <label class="input-group-text" for=""><i class="bi bi-geo-alt-fill"></i></label>
-					</div>
-					<div class="col-md-4 py-1">
-                    <select class="form-select">
-                        <option selected>Location</option>
-                        <option value="1">College Station</option>
-                        <option value="2">Bryan</option>
-                        <option value="3">Temple</option>
-                    </select>                    
-</div>
-                    
-                    <div class="col-md-2 p-1">
-                    <button class="btn btn-info" type="button">Search</button>
-                </div>
-                </div>	
-                
-            </form>
+   <form class="row g-1" action="/discover_opportunities" method="GET" id="searchform">
+  <div class="col-md-5">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" aria-label="Search" id="searchbox">
+    </div>
+  </div>
+  <div class="col-md-4">
+   <div class="input-group">
+      <label for="location" class="w-25 input-group-text"><i class="bi bi-geo-alt-fill"></i></label>
+      <select class="form-select w-75" id="location">
+        <option selected disabled>Filter Location</option>
+              <option value="Bryan">Bryan</option>
+              <option value="College Station">College Station</option>
+              <option value="Navasota">Navasota</option>
+              <option value="Houston">Houston</option>
+                <option value="Houston">Galveston</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-warning w-100" type="submit">Search</button>
+  </div>
+</form>
             </div>
             </div>
             <div class="col-md-6 bg-light">
@@ -138,7 +143,7 @@
       </div>
 
             <p>Post volunteering opportunities and ensure that your next event gets the volunteers it needs.</p>
-            <button class="btn btn-outline-primary" type="button">Get Started</button>
+        <a class="btn btn-success" href="/login" type="button">Get Started</a>
         </div>
     </div>
     </div>
@@ -164,7 +169,7 @@
                 <p class="card-text">
                 "I had an amazing experience volunteering with Aggie Volunteer World. The process was easy and ..."
             	</p>	
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
             </div>
    
@@ -178,7 +183,7 @@
                 <p class="card-text">
                 	"Thanks to Aggie Volunteer World, I found the perfect volunteering opportunity that matched my skills and interests. Highly recommend!"
                 </p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
               
                               
@@ -191,7 +196,7 @@
                 <h5 class="card-title">Jordan Paula</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></small> 
 
                 <p class="card-text">"I was scrambling for volunteers for an event, but then I found Aggie Volunteer World. I found the best available volunteers from Texas A&M."</p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
             </div>
         </div>
@@ -205,7 +210,7 @@
                 <h5 class="card-title">Monet Manet</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small>
                 <p class="card-text">
                 "I found fulfilling volunteer opportunities at Aggie Volunteer World. The organization I worked with let me make an impact."</p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
             </div>
    
@@ -216,7 +221,7 @@
               <div class="card-body">
                 <h5 class="card-title">Nisha Torani</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></small>
                 <p class="card-text">"I'm glad I found Aggie Volunteer World. It's a great way to give back to the community and meet new people."</p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
             </div>
    
@@ -226,7 +231,7 @@
               <div class="card-body">
                 <h5 class="card-title">Jack Stark</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small>
                 <p class="card-text">"Aggie Volunteer World helped me find a volunteering opportunity that I'm truly passionate about. Thank you!"</p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
               </div>
             </div>
         </div>
@@ -246,8 +251,24 @@
 </div>
 
 </main>
+
 <!-- Bootstrap Bundle with Popper and jQuery -->
-<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="../static/js/main.js"></script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#searchform');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const search = document.getElementById('searchbox').value
+      const location = document.getElementById('location').value
+
+      const url = `/discover_opportunities?location=${location}&search=${search}`;
+    // Redirect to the URL
+  window.location.href = url;
+    });
+  });
+</script>
 </body>
 </html>
