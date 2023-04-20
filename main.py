@@ -33,7 +33,7 @@ def discover():
     if cause and cause != "":
         items = [x for x in items if cause in x['cause']]
 
-    time_commitment = request.args.get('time-commitment', default=None, type=str)
+    time_commitment = request.args.get('time_commitment', default=None, type=str)
 
     if time_commitment and time_commitment != "":
         if time_commitment == "full-day":
