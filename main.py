@@ -17,7 +17,6 @@ Session(app)
 @app.route("/discover_opportunities", methods=['GET'])
 def discover():
     # extract data from JSON
-
     with open('static/opportunities.json') as f:
         items = json.load(f)['opportunities']
     # pagination setup
@@ -35,8 +34,15 @@ def discover():
         items = [x for x in items if cause in x['cause']]
 
     time_commitment = request.args.get('time-commitment', default=None, type=str)
+
     if time_commitment and time_commitment != "":
-        items = [x for x in items if time_commitment in x['time_commitment']]
+        if time_commitment == "full-day":
+            time_commitment_val = "Full Day"
+        elif time_commitment == "half-day":
+            time_commitment_val = "Half Day"
+        else:
+            time_commitment_val = "Less than 2 hours"
+        items = [x for x in items if time_commitment_val in x['time_commitment']]
 
     duration = request.args.get('duration', default=None, type=str)
     if duration and duration != "":
@@ -109,10 +115,12 @@ def signup_action():
     session["username"] = username
     return render_template("index.html", message="Signed Up!")
 
+
 @app.errorhandler(404)
 # inbuilt function which takes error as parameter
 def not_found(e):
-# defining function
-  return render_template("404.html")
+    return render_template("404.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

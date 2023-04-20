@@ -129,7 +129,7 @@
               <option value="College Station">College Station</option>
               <option value="Navasota">Navasota</option>
               <option value="Houston">Houston</option>
-                <option value="Houston">Galveston</option>
+                <option value="Galveston">Galveston</option>
             </select>
           </div>
           <div class="mb-3">
@@ -298,8 +298,8 @@
             <textarea class="form-control" id="message-text"></textarea>
           </div>
             <div class="mb-3">
-  <label for="formFile" class="form-label">Upload your resume or other related documents</label>
-  <input class="form-control" type="file" id="formFileMultiple">
+  <label for="formFileMultiple" class="form-label">Upload your resume or other related documents</label>
+  <input class="form-control" type="file" id="formFileMultiple" multiple>
 </div>
         </form>
       </div>
@@ -313,12 +313,11 @@
 
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+  <div id="liveToast" class="toast hide text-bg-light" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-
       <strong class="me-auto">Aggie Volunteer World</strong>
       <small>Now</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
       You've applied to volunteer for the event. More information will be available in the email sent to {% if session.email %}
@@ -340,8 +339,9 @@
     <div class="d-none d-sm-none d-md-none d-lg-block d-xl-none" data-size="lg"></div>
     <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block" data-size="xl"></div>
 </div>
-<div class="modal fade modal-fullscreen" id="opportunity-modal" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    <div class="modal fade modal-fullscreen" id="opportunity-modal"
+     data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -387,15 +387,51 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="#" class="btn btn-success">Apply</a>
+        <button class="btn btn-success" id="opportunity-apply-modal-open" data-bs-toggle="modal">Apply</button>
       </div>
     </div>
   </div>
 </div>
+
+ <div class="modal fade" id="opportunity-apply-modal"
+     data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mobile-apply">Apply for this opportunity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>Sent the organization a personal message about why you'd be a good fit.</p>
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Subject:</label>
+            <input type="text" class="form-control" id="recipient-name-mobile">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text-mobile"></textarea>
+          </div>
+            <div class="mb-3">
+  <label for="formFileMultiple-mobile" class="form-label">Upload your resume or other related documents</label>
+  <input class="form-control" type="file" id="formFileMultiple-mobile" multiple>
+</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="liveToastBtn-mobile">Send message</button>
+      </div>
+    </div>
+  </div>
+
+ </div>
     <script>
 $(document).ready(function(){
     $("#liveToastBtn").click(function(){
-
+        $("#liveToast").toast("show");
+    });
+    $("#liveToastBtn-mobile").click(function(){
         $("#liveToast").toast("show");
     });
 });
@@ -461,7 +497,16 @@ $("#filterForm").removeClass('show');
   $("#duration").val(params.get('duration'));
 
 
+
+
 });
+$("#opportunity-apply-modal-open").click(function(event){
+event.preventDefault();
+var modal = document.getElementById("opportunity-modal");
+    $(modal).modal('toggle');
+var modal2 = document.getElementById("opportunity-apply-modal");
+    $(modal2).modal('toggle');
+  });
 
   $("#leftlist > li").click(function(event){
   event.preventDefault();
