@@ -99,3 +99,6 @@
   margin-bottom: 0;
   color: #6f6f6f;
 }
+.custom-button {
+    width: 120px !important;
+}

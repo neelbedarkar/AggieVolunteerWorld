@@ -37,7 +37,7 @@
             <!-- Logo and Tagline -->
             <a class="navbar-brand" href="/">
                 <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
-                <h5 style="display:inline"> Aggie Volunteer World </h5>
+                <h3 style="display:inline"> Aggie Volunteer World </h3>
                 <br>
                 <div class="fs-6">A place to find volunteers and opportunities</div>
                 
@@ -150,7 +150,7 @@
               <option value="Multi-Week">Multi-Week</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-success" value="apply">Apply</button>
+          <button type="submit" class="btn btn-success" value="apply">Filter</button>
             <button type="submit" class="btn btn-secondary" value="filter">Clear</button>
         </form>
       </div>    
@@ -383,11 +383,15 @@
 
   <p class="card-text mb-3" id="modal-opportunity-details-description">Description of activity</p>
 </div>
+     <div class="d-grid gap-2">
+<button class="btn btn-success" id="opportunity-apply-modal-open" data-bs-toggle="modal">Apply</button>
+
+
+  </div>
     </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-success" id="opportunity-apply-modal-open" data-bs-toggle="modal">Apply</button>
       </div>
     </div>
   </div>
