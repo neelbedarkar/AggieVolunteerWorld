@@ -14,3 +14,5 @@ venv/
 # IDE files
 .idea/
 .vscode/
+static/images/logoold.jpeg
+static/images/home.gif
