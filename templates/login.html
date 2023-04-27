@@ -55,27 +55,19 @@
 
                         <form method="POST" action="/login_action" class="signin-form">
                             <div class="mb-3">
-                                <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" placeholder="Username" required="" name="username" id="username">
+                                <label class="form-label" for="login-email-1">Email address</label>
+                                <input type="email" class="form-control" placeholder="Email" required="" name="login-email-1" id="login-email-1">
+                                <div id="login-email-help-2" class="form-text text-white">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="password">Password</label>
                                 <input type="password" class="form-control" placeholder="Password" required="" id="password" name="password">
                             </div>
-
-                            <div class="mb-3">
-                                <div class="w-50 text-left">
-                                    <label class="checkbox-wrap checkbox-success mb-0">Remember Me
-                                        <input type="checkbox" checked="">
-                                        <span class=""></span>
-                                    </label>
-                                </div>
-
-                            </div>
-
-                            <div class="mb-3 align-bottom">
-                                <button type="submit" class="btn  btn-warning mb-3">Login</button>
-                            </div>
+<div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="rememberme-1" name="rememberme-1">
+    <label class="form-check-label" for="rememberme-1">Remember Me</label>
+  </div>
+  <button type="submit" class="btn btn-warning mb-3 custom-button">Login</button>
                         </form>
             </div>
         </div>
@@ -89,23 +81,20 @@
                 </div>
 <form method="POST" action="/signup_action">
   <div class="mb-3">
-    <label for="signup2-username" class="form-label">Username</label>
-    <input type="text" class="form-control" id="signup2-username" name="signup2-username" required>
+    <label for="signup2-email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="signup2-email" name="signup2-email" aria-describedby="signup2-email-help" required>
+    <div id="signup2-email-help" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="signup2-password" class="form-label">Password</label>
     <input type="password" class="form-control" id="signup2-password" name="signup2-password" required>
   </div>
-  <div class="mb-3">
-    <label for="signup2-email" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="signup2-email" name="signup2-email" aria-describedby="signup2-email-help" required>
-    <div id="signup2-email-help" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
+
   <div class="form-check mb-3">
     <input type="checkbox" class="form-check-input" id="post-opportunities2" name="post-opportunities2">
     <label class="form-check-label" for="post-opportunities2">I want to post opportunities as part of an organization</label>
   </div>
-  <button type="submit" class="btn btn-success mb-3">Sign Up</button>
+  <button type="submit" class="btn btn-success mb-3 custom-button">Sign Up</button>
 </form>
 
             </div>
@@ -130,31 +119,25 @@
                     <div class="section-header-secondary mb-0 pb-0">
                         <h2 class="display-5">Login</h2>
                     </div>
+
                 </div>
 
                         <form method="POST" action="/login_action" class="signin-form">
                             <div class="mb-3">
-                                <label class="form-label" for="username1">Username</label>
-                                <input type="text" class="form-control" placeholder="Username" required="" id="username1" name="username1">
+                                <label class="form-label" for="login-email-2">Email address</label>
+                                <input type="email" class="form-control" placeholder="Email" required="" id="login-email-2" name="login-email-2">
+                                <div id="login-email-help" class="form-text">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="password1">Password</label>
                                 <input type="password" class="form-control" placeholder="Password" required="" id="password1" name="password1">
                             </div>
+ <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="rememberme-2" name="rememberme-2">
+    <label class="form-check-label" for="rememberme-2">Remember Me</label>
+  </div>
+  <button type="submit" class="btn btn-warning mb-3 custom-button">Login</button>
 
-                            <div class="mb-3">
-                                <div class="w-50 text-left">
-                                    <label class="checkbox-wrap checkbox-success mb-0">Remember Me
-                                        <input type="checkbox" checked="">
-                                        <span class=""></span>
-                                    </label>
-                                </div>
-
-                            </div>
-
-                            <div class="mb-3 align-bottom">
-                                <button type="submit" class="btn  btn-warning mb-3 custom-button" >Login</button>
-                            </div>
                         </form>
             </div>
         </div>
@@ -166,27 +149,25 @@
                     <div class="section-header-secondary mb-0 pb-0">
                         <h2 class="display-5">Sign Up</h2>
                     </div>
+                </div>
                     <form method="POST" action="/signup_action">
-  <div class="mb-3">
-    <label for="signup-username" class="form-label">Username</label>
-    <input type="text" class="form-control" id="signup-username" name="signup-username" required>
-  </div>
-  <div class="mb-3">
-    <label for="signup-password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="signup-password" name="signup-password" required>
-  </div>
   <div class="mb-3">
     <label for="signup-email" class="form-label">Email address</label>
     <input type="email" class="form-control" id="signup-email" name="signup-email" aria-describedby="signup-email-help" required>
     <div id="signup-email-help" class="form-text">We'll never share your email with anyone else.</div>
   </div>
+  <div class="mb-3">
+    <label for="signup-password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="signup-password" name="signup-password" required>
+  </div>
+
   <div class="form-check mb-3">
     <input type="checkbox" class="form-check-input" id="post-opportunities" name="post-opportunities">
     <label class="form-check-label" for="post-opportunities">I want to post opportunities as part of an organization</label>
   </div>
   <button type="submit" class="btn btn-success custom-button">Sign Up</button>
 </form>
-                </div>
+
 
             </div>
         </div>

@@ -60,7 +60,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/help">Help</a>
                     </li>
-                   {% if session.username %}
+                   {% if session.logged_in %}
       <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
@@ -320,10 +320,11 @@
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      You've applied to volunteer for the event. More information will be available in the email sent to {% if session.email %}
+        {% if session.email %}
+      You've applied to volunteer for the event. More information will be available in the email sent to
       {{ session.email }}
    {% else %}
-      you.
+      Please Sign Up/Login to
    {% endif %}
     </div>
   </div>

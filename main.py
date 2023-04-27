@@ -94,25 +94,21 @@ def help():
 
 @app.route('/login_action', methods=['POST'])
 def login_action():
-    username = request.form.get('username', None)
-    if not username:
-        username = request.form.get('username1', None)
-    session["username"] = username
+    email = request.form.get('login-email-1', None)
+    if not email:
+        email = request.form.get('login-email-2', None)
+    session["email"] = email
+    session["logged_in"] = True
     return render_template("index.html", message="Logged In!")
 
 
 @app.route('/signup_action', methods=['POST'])
 def signup_action():
-    username = request.form.get('signup-username', None)
-    if not username:
-        username = request.form['signup2-username']
     email = request.form.get('signup-email', None)
     if not email:
         email = request.form['signup2-email']
-    print(email)
-    print(username)
     session["email"] = email
-    session["username"] = username
+    session["logged_in"] = True
     return render_template("index.html", message="Signed Up!")
 
 

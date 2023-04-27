@@ -102,3 +102,9 @@
 .custom-button {
     width: 120px !important;
 }
+
+.jumbotron-custom {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../images/Volunteer.jpeg");
+  background-size: cover;
+
+}
