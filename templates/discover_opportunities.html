@@ -418,8 +418,15 @@ $("#filterForm").removeClass('show');
   $("#location").val(params.get('location'));
   $("#time-commitment").val(params.get('time_commitment'));
   $("#duration").val(params.get('duration'));
-  console.log(params.get('remote'))
-  $("#remote").val(params.get('remote'));
+
+  if(params.get('remote')==='on'){
+document.getElementById("remote").checked = true;
+}
+else{
+document.getElementById("remote").checked = false;
+}
+// Uncheck
+
 
 
 
