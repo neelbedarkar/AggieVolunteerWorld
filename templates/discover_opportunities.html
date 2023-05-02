@@ -368,8 +368,12 @@ function addParameters() {
   const location = document.getElementById('location').value;
   const timeCommitment = document.getElementById('time-commitment').value;
   const duration = document.getElementById('duration').value;
-  const remote = document.getElementById('remote').value;
+  var remote = '';
+  if(document.getElementById('remote').checked){
+  remote = 'on';
+  }
 
+  console.log(remote);
   // Create the URL with the parameters
   const url = `/discover_opportunities?search=${search}&cause=${cause}&location=${location}&time_commitment=${timeCommitment}&duration=${duration}&remote=${remote}`;
 
