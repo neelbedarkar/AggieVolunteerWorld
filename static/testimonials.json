@@ -1,0 +1,92 @@
+{
+  "testimonials": [
+    {
+    "id": "1",
+    "name": "Bob Mortimer",
+    "photo_path": "/static/images/person1.jpg",
+    "small_description": "\"I had an amazing experience volunteering with Aggie Volunteer World. The process was easy and ...\"",
+    "title": "Food-drive for homeless in Houston",
+    "role": "Volunteer",
+    "organization": "Houston Food Bank",
+    "large_description": "\"I had an amazing experience volunteering with Aggie Volunteer World. The process was easy and I found the organization that I wanted to volunteer with\"",
+     "rating": 4
+  },
+  {
+    "id": "2",
+    "name": "Romesh R",
+    "photo_path": "/static/images/person2.jpg",
+    "small_description": "\"Aggie Volunteer World made it easy for me to find opportunities to give back to the community.\"",
+    "title": "Gardening for local community garden",
+    "role": "Volunteer",
+    "organization": "College Station Community Garden",
+    "large_description": "\"I had a great time volunteering with Aggie Volunteer World. I was able to find a local community garden that needed help with gardening and was able to make a positive impact on my community.\"",
+    "rating": 4.5
+  },
+  {
+    "id": "3",
+    "name": "Maria S",
+    "photo_path": "/static/images/person3.jpg",
+    "small_description": "\"I found a great opportunity to help out with hurricane relief efforts through Aggie Volunteer World. It was a rewarding experience.\"",
+    "title": "Hurricane relief in Navasota",
+    "role": "Volunteer",
+    "organization": "Navasota Emergency Management",
+    "large_description": "\"I was able to help out with hurricane relief efforts thanks to Aggie Volunteer World. It was a great way to give back to those in need.\"",
+    "rating": 5
+  },
+  {
+    "id": "4",
+    "name": "Javier R",
+    "photo_path": "/static/images/person4.jpg",
+    "small_description": "\"As an organizer, Aggie Volunteer World made it easy to find volunteers for my event and communicate with them effectively.\"",
+    "title": "Community cleanup in Bryan",
+    "role": "Organizer/Opportunity Provider",
+    "organization": "Bryan City Council",
+    "large_description": "\"I was able to find volunteers for my community cleanup event through Aggie Volunteer World. The platform made it easy to communicate with them and ensure that everything went smoothly.\"",
+    "rating": 5
+  },
+  {
+    "id": "5",
+    "name": "Emily Paris",
+    "photo_path": "/static/images/person5.jpg",
+    "small_description": "\"I had a great time volunteering with Aggie Volunteer World. I was able to find an opportunity that aligned with ...\"",
+    "title": "Mentoring for local high school students",
+    "role": "Volunteer",
+    "organization": "College Station High School",
+    "large_description": "\"I found a great mentoring opportunity through Aggie Volunteer World. It was a rewarding experience to work with local high school students and help them achieve their goals.\"",
+    "rating": 4
+  },{
+"id":"6",
+"name": "Jasmine A",
+"photo_path":"/static/images/person6.jpg",
+"small_description": "\"I found the perfect opportunity on Aggie Volunteer World and had a great time volunteering!\"",
+"title": "Community cleanup in Bryan",
+"role": "Volunteer",
+"organization": "Keep Brazos Beautiful",
+"large_description":"\"I found the perfect opportunity on Aggie Volunteer World and had a great time volunteering! The event was well-organized and I enjoyed meeting new people while making a difference in my community. Thanks Aggie Volunteer World!\"",
+      "rating": 4.5
+},
+{
+"id":"7",
+"name": "Alexander the Great",
+"photo_path":"/static/images/person7.jpg",
+"small_description": "\"As a non-profit organizer, Aggie Volunteer World has been a fantastic resource for us to find dedicated volunteers\"",
+"title": "Youth mentorship program in Navasota",
+"role": "Organizer/Opportunity Provider",
+"organization": "Boys and Girls Club of Navasota",
+"large_description":"\"As a non-profit organizer, Aggie Volunteer World has been a fantastic resource for us to find dedicated volunteers to aid in our quest. The people were very kind. Similar to what I had back home in Greece. We appreciate the platform and the support that it provides to help us reach more volunteers.\"",
+  "rating": 4.5
+},
+{
+"id":"8",
+"name": "Sarah",
+"photo_path":"/static/images/person8.jpg",
+"small_description": "\"Aggie Volunteer World helped me find a volunteer opportunity that aligned with my interests and schedule!\"",
+"title": "Gardening and landscaping for a senior center in College Station",
+"role": "Volunteer",
+"organization": "The Villa at Riverstone",
+"large_description":"\"Aggie Volunteer World helped me find a volunteer opportunity that aligned with my interests and schedule! I had a great time gardening and landscaping at The Villa at Riverstone and I look forward to finding more opportunities through the platform.\"",
+  "rating": 5
+}
+
+  ]
+}

@@ -156,6 +156,7 @@
           
            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
+<<<<<<< Updated upstream
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
   <div class="card-group">
@@ -190,15 +191,45 @@
    
      <div class="card">
               <img class="card-img-top" width="100%" height="400px" src="../static/images/Jordan.jpg"/>
-
+=======
+  <div class="carousel-inner" role="listbox">
+      {% for testimonial in testimonials %}
+      {% if loop.first %}
+      <div class="carousel-item active" data-bs-interval="10000">
+          {% else %}
+          <div class="carousel-item" data-bs-interval="10000">
+        {% endif %}
+        <div class="card-group" style="max-width:33%">
+        <div class="card">
+              <img class="card-img-top" width="100%" height="100%" src="{{ testimonial.photo_path }}"/>
               <div class="card-body">
-                <h5 class="card-title">Jordan Paula</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></small> 
+                <h5 class="card-title">{{ testimonial.name }}</h5>
+                  <small class="text-muted">
+                      {% for i in range(testimonial.rating | int) %}
+    <i class="bi bi-star-fill"></i>
+{% endfor %}
 
-                <p class="card-text">"I was scrambling for volunteers for an event, but then I found Aggie Volunteer World. I found the best available volunteers from Texas A&M."</p>
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
+{% if testimonial.rating % 1 != 0 %}
+    <i class="bi bi-star-half"></i>
+{% endif %}
+{% if testimonial.rating % 1 != 0 %}
+{% for i in range(4 - testimonial.rating | int) %}
+    <i class="bi bi-star"></i>
+{% endfor %}
+                      {% else %}
+                      {% for i in range(5 - testimonial.rating | int) %}
+    <i class="bi bi-star"></i>
+>>>>>>> Stashed changes
+
+               {% endfor %}
+                      {% endif %}
+                  </small>
+                <p class="card-text stopText">{{ testimonial.small_description }}</p>
+                  <button class="btn btn-success modal-button" data-testimonial-id="{{ loop.index0 }}">Read More</button>
               </div>
             </div>
         </div>
+<<<<<<< Updated upstream
    </div>
        <div class="carousel-item" data-bs-interval="10000">
   <div class="card-group">
@@ -236,6 +267,10 @@
         </div>
    </div>
  
+=======
+      </div>
+{% endfor %}
+>>>>>>> Stashed changes
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -248,26 +283,101 @@
 </div>
 </div>
 </div>
-
+<div id="sizer">
+    <div class="d-block d-sm-none d-md-none d-lg-none d-xl-none" data-size="xs"></div>
+    <div class="d-none d-sm-block d-md-none d-lg-none d-xl-none" data-size="sm"></div>
+    <div class="d-none d-sm-none d-md-block d-lg-none d-xl-none" data-size="md"></div>
+    <div class="d-none d-sm-none d-md-none d-lg-block d-xl-none" data-size="lg"></div>
+    <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block" data-size="xl"></div>
+</div>
+<!-- Testimonial Modal -->
+<div class="modal fade" id="testimonial-modal" tabindex="-1" aria-labelledby="testimonial-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="testimonial-modal-label"><span id="modal-testimonial-person_name"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="" alt="Testimonial" id="modal-testimonial-photo_path" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+            <p><strong>Event:</strong> <span id="modal-testimonial-title"></span></p>
+            <p><strong>Organization:</strong> <span id="modal-testimonial-organization"></span></p>
+            <p><strong>Role:</strong> <span id="modal-testimonial-role"></span></p>
+            <p><strong>Rating:</strong> <span id="modal-testimonial-rating"></span>/5</p>
+            <hr>
+            <p id="modal-testimonial-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 
 <!-- Bootstrap Bundle with Popper and jQuery -->
 <script src="../static/js/bootstrap.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="../static/js/main.js"></script>
+
   <script>
+  let items = document.querySelectorAll('.carousel .carousel-item')
+items.forEach((el) => {
+    const minPerSlide = 3
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+            // wrap carousel by using first child
+        	next = items[0]
+      	}
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+
    document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('#searchform');
     form.addEventListener('submit', function(event) {
       event.preventDefault();
       const search = document.getElementById('searchbox').value
       const location = document.getElementById('location').value
-
       const url = `/discover_opportunities?location=${location}&search=${search}`;
     // Redirect to the URL
   window.location.href = url;
     });
   });
+
+  $(document).ready(function() {
+    var screen_size = $('#sizer').find('div:visible').data('size');
+  if (screen_size == "sm" || screen_size == "xs" || screen_size == "md")
+   {
+  console.log("Small Screen changing the testimonial width")
+$('.card-group').css("max-width", "none");
+
+  }
+
+});
+
+$(".modal-button").click(function(event){
+  event.preventDefault();
+  var testimonial_id = this.dataset.testimonialId
+  var testimonials = {{ testimonials|tojson }};
+  var testimonial = testimonials[testimonial_id];
+     var modal = document.getElementById("testimonial-modal");
+    $(modal).modal('toggle');
+      // replace placeholders in opportunity details section
+  $("#modal-testimonial-photo_path").attr("src", testimonial.photo_path);
+  $("#modal-testimonial-person_name").text(testimonial.name);
+  $("#modal-testimonial-title").text(testimonial.title);
+  $("#modal-testimonial-organization").text(testimonial.organization);
+  $("#modal-testimonial-description").text(testimonial.large_description);
+  $("#modal-testimonial-role").text(testimonial.role);
+  $("#modal-testimonial-rating").text(testimonial.rating);
+    });
+
 </script>
 </body>
 </html>

@@ -68,7 +68,10 @@ def discover():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    with open('static/testimonials.json') as f:
+        testimonials = json.load(f)['testimonials']
+
+    return render_template("index.html", testimonials=testimonials)
 
 
 @app.route("/about_us")
@@ -84,6 +87,8 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop("username", None)
+    session.pop("logged_in", None)
+    session.pop("email", None)
     return render_template("index.html", message="Logged out")
 
 
