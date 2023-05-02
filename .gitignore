@@ -16,3 +16,4 @@ venv/
 .vscode/
 static/images/logoold.jpeg
 static/images/home.gif
+flask_session/

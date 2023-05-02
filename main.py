@@ -115,6 +115,10 @@ def signup_action():
     session["logged_in"] = True
     return render_template("index.html", message="Signed Up!", testimonials=testimonials)
 
+@app.route('/signup_2')
+def signup_2():
+    return render_template("sign_up_questions.html", message="Logged In!", testimonials=testimonials)
+
 
 @app.errorhandler(404)
 # inbuilt function which takes error as parameter
