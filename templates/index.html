@@ -156,42 +156,6 @@
           
            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-<<<<<<< Updated upstream
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-  <div class="card-group">
-    <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Bob.jpg"/>
-			  
-              <div class="card-body">
-                <h5 class="card-title">Bob Mortimer</h5>                       
-                <small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></small>              
-                <p class="card-text">
-                "I had an amazing experience volunteering with Aggie Volunteer World. The process was easy and ..."
-            	</p>	
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
-              </div>
-            </div>
-   
-   
-       <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Romesh.jpg"/>
-
-              <div class="card-body">
-                <h5 class="card-title">Romesh Ravindra</h5>
-                <small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small> 
-                <p class="card-text">
-                	"Thanks to Aggie Volunteer World, I found the perfect volunteering opportunity that matched my skills and interests. Highly recommend!"
-                </p>
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
-              </div>
-              
-                              
-            </div>
-   
-     <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Jordan.jpg"/>
-=======
   <div class="carousel-inner" role="listbox">
       {% for testimonial in testimonials %}
       {% if loop.first %}
@@ -219,7 +183,6 @@
                       {% else %}
                       {% for i in range(5 - testimonial.rating | int) %}
     <i class="bi bi-star"></i>
->>>>>>> Stashed changes
 
                {% endfor %}
                       {% endif %}
@@ -229,48 +192,8 @@
               </div>
             </div>
         </div>
-<<<<<<< Updated upstream
-   </div>
-       <div class="carousel-item" data-bs-interval="10000">
-  <div class="card-group">
-    <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Monet.jpg"/>
-
-              <div class="card-body">
-                <h5 class="card-title">Monet Manet</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small>
-                <p class="card-text">
-                "I found fulfilling volunteer opportunities at Aggie Volunteer World. The organization I worked with let me make an impact."</p>
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
-              </div>
-            </div>
-   
-   
-       <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Nisha.jpg"/>
-
-              <div class="card-body">
-                <h5 class="card-title">Nisha Torani</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></small>
-                <p class="card-text">"I'm glad I found Aggie Volunteer World. It's a great way to give back to the community and meet new people."</p>
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
-              </div>
-            </div>
-   
-     <div class="card">
-              <img class="card-img-top" width="100%" height="400px" src="../static/images/Rebecca.jpg"/>
-
-              <div class="card-body">
-                <h5 class="card-title">Rebecca Stark</h5><small class="text-muted"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small>
-                <p class="card-text">"Aggie Volunteer World helped me find a volunteering opportunity that I'm truly passionate about. Thank you!"</p>
-                <a href="/about_us#:~:text=our%20local%20communities.%E2%80%9D-,Our%20Team,-Aggie%20Altruists%20are" class="btn btn-success">Read More</a>
-              </div>
-            </div>
-        </div>
-   </div>
- 
-=======
       </div>
 {% endfor %}
->>>>>>> Stashed changes
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
