@@ -11,8 +11,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-# Setup Flask-Login
 
+with app.app_context():
+    with open('static/testimonials.json') as f:
+        testimonials = json.load(f)['testimonials']
 
 @app.route("/discover_opportunities", methods=['GET'])
 def discover():
@@ -68,9 +70,6 @@ def discover():
 
 @app.route("/")
 def index():
-    with open('static/testimonials.json') as f:
-        testimonials = json.load(f)['testimonials']
-
     return render_template("index.html", testimonials=testimonials)
 
 
@@ -89,7 +88,7 @@ def logout():
     session.pop("username", None)
     session.pop("logged_in", None)
     session.pop("email", None)
-    return render_template("index.html", message="Logged out")
+    return render_template("index.html", message="Logged out", testimonials=testimonials)
 
 
 @app.route('/help')
@@ -104,7 +103,7 @@ def login_action():
         email = request.form.get('login-email-2', None)
     session["email"] = email
     session["logged_in"] = True
-    return render_template("index.html", message="Logged In!")
+    return render_template("index.html", message="Logged In!", testimonials=testimonials)
 
 
 @app.route('/signup_action', methods=['POST'])
@@ -114,7 +113,7 @@ def signup_action():
         email = request.form['signup2-email']
     session["email"] = email
     session["logged_in"] = True
-    return render_template("index.html", message="Signed Up!")
+    return render_template("index.html", message="Signed Up!", testimonials=testimonials)
 
 
 @app.errorhandler(404)

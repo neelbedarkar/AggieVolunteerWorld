@@ -1,76 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/main.css" rel="stylesheet">
+{% extends "base.html" %}
+        {% block content %}
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <link href="../static/icons/bootstrap-icons.css" rel="stylesheet">
-
-    <title>Aggie Volunteer World</title>
-    <style type="text/css">#carouselExampleDark {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-.carousel-control-prev {
-  margin-left: -100px;
-}
-
-.carousel-control-next {
-  margin-right: -100px;
-}
-
-
-
-</style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-success">
-        <div class="container-fluid">
-            <!-- Logo and Tagline -->
-            <a class="navbar-brand" href="/">
-                <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
-                <h3 style="display:inline"> Aggie Volunteer World </h3>
-                <br>
-                <div class="fs-6">A place to find volunteers and opportunities</div>
-
-            </a>
-            <!-- Menu Links -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about_us">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/discover_opportunities">Discover Opportunities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/help">Help</a>
-                    </li>
-                   {% if session.logged_in %}
-      <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-   {% else %}
-      <li class="nav-item">
-                        <a class="nav-link" href="/login">Login / Sign Up</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
 <div class="bg-white py-5">
   <div class="container py-5">
     <div class="row align-items-center mb-5">
@@ -94,5 +24,4 @@
 
 <script src="../static/js/bootstrap.bundle.min.js"></script>
 <script src="../static/js/main.js"></script>
-</body>
-</html>
+{% endblock %}

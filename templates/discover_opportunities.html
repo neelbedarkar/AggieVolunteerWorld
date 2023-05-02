@@ -1,98 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/main.css" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <link href="../static/icons/bootstrap-icons.css" rel="stylesheet">
-
-    <title>Aggie Volunteer World</title>
-    <style type="text/css">#carouselExampleDark {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-.carousel-control-prev {
-  margin-left: -100px;
-}
-
-.carousel-control-next {
-  margin-right: -100px;
-}
-
-.mydiv { display: inline; }
-.hidden{ display: none; }
-
-</style>
-</head>
-<body>
-    <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-success">
-        <div class="container-fluid">
-            <!-- Logo and Tagline -->
-            <a class="navbar-brand" href="/">
-                <img src="../static/images/logo.jpeg" alt="Aggie Volunteer World Logo" width="60" height="60" class="d-inline-block align-text-center">
-                <h3 style="display:inline"> Aggie Volunteer World </h3>
-                <br>
-                <div class="fs-6">A place to find volunteers and opportunities</div>
-                
-            </a>
-            <!-- Menu Links -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about_us">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/discover_opportunities">Discover Opportunities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/help">Help</a>
-                    </li>
-                   {% if session.logged_in %}
-      <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-   {% else %}
-      <li class="nav-item">
-                        <a class="nav-link" href="/login">Login / Sign Up</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
+{% extends "base.html" %}
+        {% block content %}
 
     <!-- Main Content -->
     <br>
     <br>    
 
 <div class="container mt-3">
-<!--  <nav aria-label="breadcrumb">-->
-<!--    <ol class="breadcrumb breadcrumb-chevron pt-3 pb-3 bg-body-tertiary rounded-3">-->
-<!--      <li class="breadcrumb-item">-->
-<!--        <a class="link-body-emphasis" href="/">-->
-<!--          <i class="bi bi-house-fill"></i>-->
-<!--          <span class="visually-hidden">Home</span>-->
-<!--        </a>-->
-<!--      </li>-->
-
-<!--      <li class="breadcrumb-item active" aria-current="page">-->
-<!--      Discover Opportunities-->
-<!--      </li>-->
-<!--    </ol>-->
-<!--  </nav>-->
     <div class="row">
       <div class="col-md-2 mb-3">
           <div class="btn btn-success w-100 d-sm-block d-md-none" data-bs-toggle="collapse" data-bs-target="#filterForm" aria-expanded="true" aria-controls="filterForm">
@@ -324,7 +237,7 @@
       You've applied to volunteer for the event. More information will be available in the email sent to
       {{ session.email }}
    {% else %}
-      Please Sign Up/Login to
+        Please <a href="/login">Sign Up/Login</a> to Apply
    {% endif %}
     </div>
   </div>
@@ -562,5 +475,4 @@ var modal2 = document.getElementById("opportunity-apply-modal");
 </script>
 <script src="../assets/js/main.js"></script>
 
-</body>
-</html>
+{% endblock %}
