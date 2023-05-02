@@ -10,7 +10,8 @@
       "location": "Galveston Beach, Galveston, TX 77550",
       "duration": "One-Day",
       "dates": "August 17th, 2023",
-      "cause": "Environment"
+      "cause": "Environment",
+      "remote": 0
     },
     {
       "id":"2",
@@ -22,7 +23,8 @@
       "location": "Bryan High School, Bryan, TX 77802",
       "duration": "One-Day",
       "dates": "May 25th, 2023",
-      "cause": "Education"
+      "cause": "Education",
+      "remote": 0
     },
     {
       "id":"3",
@@ -34,7 +36,8 @@
       "location": "Texas A&M University, College Station, TX 77843",
       "duration": "One-Day",
       "dates": "July 10th, 2023",
-      "cause": "Higher Education"
+      "cause": "Higher Education",
+      "remote": 0
     },
     {
       "id":"4",
@@ -46,7 +49,8 @@
       "location": "Rudder Tower, Texas A&M University, College Station, TX 77843",
       "duration": "One-Day",
       "dates": "June 22nd, 2023",
-      "cause": "Human Rights"
+      "cause": "Human Rights",
+      "remote": 0
     },
     {
       "id":"5",
@@ -58,7 +62,8 @@
       "location": "Memorial Student Center, Texas A&M University, College Station, TX 77843",
       "duration": "One-Day",
       "dates": "July 13th, 2023",
-      "cause": "Poverty"
+      "cause": "Poverty",
+      "remote": 0
     },
     {
     "id":"6",
@@ -70,7 +75,8 @@
     "location": "2401 S Loop 281, Longview, TX 75605",
     "duration": "One-Day",
     "dates": "August 17th, 2023",
-    "cause": "Animals"
+    "cause": "Animals",
+      "remote": 0
   },
   {
     "id":"7",
@@ -82,7 +88,8 @@
     "location": "3450 Campus Dr, Bryan, TX 77802",
     "duration": "One-week",
     "dates": "July 23rd - July 27th, 2023",
-    "cause": "Education"
+    "cause": "Education",
+    "remote": 1
   },
   {
     "id":"8",
@@ -94,7 +101,8 @@
     "location": "1501 Independence Ave, Bryan, TX 77803",
     "duration": "Multi-week",
     "dates": "June 5th - July 31st, 2023",
-    "cause": "Environment"
+    "cause": "Environment",
+    "remote": 0
   },
   {
     "id":"9",
@@ -106,7 +114,8 @@
     "location": "535 Portwall St, Houston, TX 77029",
     "duration": "Multi-week",
     "dates": "June 1st - August 31st, 2023",
-    "cause": "Poverty"
+    "cause": "Poverty",
+    "remote": 0
   },
   {
     "id":"10",
@@ -118,7 +127,8 @@
     "location": "3800 State Hwy 6 S, College Station, TX 77845",
     "duration": "One-week",
     "dates": "July 16th - July 20th, 2023",
-    "cause": "Health"
+    "cause": "Health",
+    "remote": 0
   }
   ]
 }

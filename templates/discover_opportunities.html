@@ -63,6 +63,10 @@
               <option value="Multi-Week">Multi-Week</option>
             </select>
           </div>
+          <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="remote" name="remote">
+    <label class="form-check-label" for="remote">Remote?</label>
+  </div>
           <button type="submit" class="btn btn-success" value="apply">Filter</button>
             <button type="submit" class="btn btn-secondary" value="filter">Clear</button>
         </form>
@@ -364,9 +368,10 @@ function addParameters() {
   const location = document.getElementById('location').value;
   const timeCommitment = document.getElementById('time-commitment').value;
   const duration = document.getElementById('duration').value;
+  const remote = document.getElementById('remote').value;
 
   // Create the URL with the parameters
-  const url = `/discover_opportunities?search=${search}&cause=${cause}&location=${location}&time_commitment=${timeCommitment}&duration=${duration}`;
+  const url = `/discover_opportunities?search=${search}&cause=${cause}&location=${location}&time_commitment=${timeCommitment}&duration=${duration}&remote=${remote}`;
 
   // Redirect to the URL
   window.location.href = url;
@@ -413,6 +418,8 @@ $("#filterForm").removeClass('show');
   $("#location").val(params.get('location'));
   $("#time-commitment").val(params.get('time_commitment'));
   $("#duration").val(params.get('duration'));
+  console.log(params.get('remote'))
+  $("#remote").val(params.get('remote'));
 
 
 

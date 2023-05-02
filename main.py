@@ -11,10 +11,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-
 with app.app_context():
     with open('static/testimonials.json') as f:
         testimonials = json.load(f)['testimonials']
+
 
 @app.route("/discover_opportunities", methods=['GET'])
 def discover():
@@ -49,6 +49,12 @@ def discover():
     duration = request.args.get('duration', default=None, type=str)
     if duration and duration != "":
         items = [x for x in items if duration in x['duration']]
+
+    remote = request.args.get('remote', default=None, type=str)
+    if remote and remote != "":
+        remote = 1 if remote == "on" else 0
+        print(remote)
+        items = [x for x in items if remote == x['remote']]
 
     page = int(request.args.get('page', 1))
     per_page = 5
