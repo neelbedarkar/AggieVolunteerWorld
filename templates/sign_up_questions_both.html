@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multi-step Sign Up Form</title>
+    <!-- Bootstrap 5.3 CSS -->
+      <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <link href="../static/css/main.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="../static/icons/bootstrap-icons.css" rel="stylesheet">
+<style>
+  /* custom checkbox styles */
+
+.form-check-input:checked {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  focus-border-color: #ffc107 !important;
+
+}
+
+.search-suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<main class="container">
+    <div class="container-fluid text-center mt-3">
+  <a href="/"> <img src="../static/images/logo.jpeg" alt="Your Logo" class="img-fluid mx-auto" style="max-width: 150px;"></a>
+</div>
+
+
+ <div class="row justify-content-center">
+  <div class="col-md-6 col-sm-10"><a href="/" class="btn btn-link align-self-start">
+      <i class="bi bi-arrow-left"></i> Go to the Home Page
+    </a>
+      <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  </div>
+ </div>
+    <div class="row justify-content-center mb-3">
+   <div id="maincol" class="col-md-6 col-sm-10 login-col bg bg-light border border-light me-md-2 pt-2 px-2 pt-md-2 px-md-2 text-dark overflow-hidden">
+    <div id="step1">
+        <div class="section-header-secondary mb-0 pb-0">
+                        <h2 class="display-5">Step 1: Personal Information</h2>
+                    </div>
+
+          <form id="step1-form">
+        <div class="mb-3">
+            <label for="first-name" class="form-label">First Name*</label>
+            <input type="text" class="form-control" id="first-name" name="first-name" required>
+        </div>
+        <div class="mb-3">
+            <label for="last-name" class="form-label">Last Name*</label>
+            <input type="text" class="form-control" id="last-name" name="last-name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" disabled value="{{ session.email }}">
+        </div>
+        <div class="mb-3">
+            <label for="phone-number" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone-number" name="phone-number">
+        </div>
+        <div class="mb-3">
+            <label for="zip-code" class="form-label">Zip Code*</label>
+            <input type="text" class="form-control" id="zip-code" name="zip-code" required>
+        </div>
+
+    </form>
+    <button id="next1" class="btn btn-success mb-3">Next</button>
+</div>
+<div id="step2" class="d-none">
+  <div class="section-header-secondary mb-3 pb-0">
+    <h2 class="display-5">Step 2: Setup Volunteer Profile (Optional)</h2>
+    <small>Setup your profile if you want to apply for opportunities as a volunteer. This is an optional step, and you can skip this if you are not interested to volunteer for events hosted by other organizations</small>
+  </div>
+    <button id="skip" class="btn btn-warning mb-1" type="button" onclick="toggleSkip()">Skip this Step</button>
+
+            <hr class="border border-warning border-2 opacity-100">
+
+<form id="step2-form">
+  <div class="mb-3">
+        <label class="form-label">Select the causes that align best with your interests</label>
+  <div class="row" id="cause-select">
+    <div class="col-md-6">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Animals" id="animalsCheck">
+        <label class="form-check-label" for="animalsCheck">
+          Animals
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Education" id="educationCheck">
+        <label class="form-check-label" for="educationCheck">
+          Education
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Environment" id="environmentCheck">
+        <label class="form-check-label" for="environmentCheck">
+          Environment
+        </label>
+      </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Poverty" id="povertyCheck">
+        <label class="form-check-label" for="povertyCheck">
+          Poverty
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Health" id="healthCheck">
+        <label class="form-check-label" for="healthCheck">
+          Health
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Homelessness" id="homelessnessCheck">
+        <label class="form-check-label" for="homelessnessCheck">
+          Homelessness
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Human Rights" id="humanRightsCheck">
+        <label class="form-check-label" for="humanRightsCheck">
+          Human Rights
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Any" id="anyCheck">
+        <label class="form-check-label" for="anyCheck">
+          I am open to volunteer for any cause
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3">
+    <label for="work-preferences" class="form-label">Work Preferences</label>
+    <select class="form-select" id="work-preferences">
+          <option selected>Select your work preference</option>
+      <option>Group Work</option>
+      <option>Individual Work</option>
+      <option>No Preference</option>
+    </select>
+  </div>
+    <div class="mb-3">
+    <label for="credentials" class="form-label">Credentials to Highlight on Your Profile</label>
+        <textarea class="form-control" id="credentials" rows="2" placeholder="Example:Leadership position at the Latin Club or Graduate Mentoring Academy Fellow"></textarea>
+  </div>
+<div class="mb-3">
+    <label for="volunteer-experience" class="form-label">Volunteering Experiences</label>
+    <textarea class="form-control" id="volunteer-experience" rows="5" placeholder="Write about your previous experiences as a volunteer"></textarea>
+  </div>
+
+    </form>
+    <button id="back2" class="btn btn-secondary mb-3">Back</button>
+  <button id="next2" class="btn btn-success mb-3">Next</button>
+</div>
+
+    <div id="step3" class="d-none">
+      <div class="section-header-secondary mb-0 pb-0">
+                        <h2 class="display-5">Step 3: Find Your Organization</h2>
+                    </div>
+      <div id="searchOrg" class="px-3">
+<div class="position-relative">
+    <form id="search-org">
+  <div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for an organization" name="search" id="search">
+      <button class="btn btn-success" type="submit" id="searchsubmit">Search</button>
+      </div>
+</form>
+  <div class="search-suggestions list-group position-absolute w-100" style="z-index: 1;"></div>
+</div>
+          <div class="pt-3 pb-3 messagediv d-none"><p>
+              Your request was sent to this organization.
+              You can only be part of one organization at a time.
+          </p>
+
+          </div>
+    <div class="pt-5 pb-5 spacerdiv">&nbsp;</div>
+          <div class="pt-5 pb-5 spacerdiv">&nbsp;</div>
+  <ul class="list-group mt-3 d-none" id="resultset" style="z-index: 0;">
+
+  </ul>
+          <div class="pt-3 pb-3 spacerdivend d-none">&nbsp;</div>
+</div>
+        <div class="messagediv d-none">
+                          <small> Made a mistake while choosing your organization? Click on the button to reset your organization preference.
+              </small>
+        </div>
+<input name="hiddenOrg" value="" id="hiddenOrgIdField" type="hidden">
+      <button id="back3" class="btn btn-secondary mt-3 mb-3">Back</button>
+      <button id="next3" class="btn btn-success mt-3 mb-3" disabled>Next</button>
+         <button class="btn btn-warning messagediv d-none"  id="reset"> Reset </button>
+    </div>
+
+     <div id="step4" class="d-none">
+      <div class="section-header-secondary mb-0 pb-0">
+                        <h2 class="display-5">Step 4: Create an Organization</h2>
+                    </div>
+      <p>Enter your password:</p>
+      <button id="back4" class="btn btn-secondary">Back</button>
+      <button id="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+
+   </div>
+
+</main>
+<script src="../static/js/bootstrap.bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<div class="modal" id="requestToJoinModal" tabindex="-1" aria-labelledby="requestToJoinModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestToJoinModalLabel">Request to Join</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to request to <span id="orgName"></span>?</p>
+          <input type="hidden" name="joinOrgID" id="joinOrgID" value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" id="confirmAdd">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide text-bg-light" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Aggie Volunteer World</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        Your request was sent to <span id="toastOrg"></span>
+    </div>
+  </div>
+</div>
+  <script src="../static/js/sign_up_both.js"></script>
+</body>
+</html>

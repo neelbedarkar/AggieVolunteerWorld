@@ -1,0 +1,92 @@
+[
+  {
+    "org_id": "1",
+    "org_name": "Ocean Conservancy",
+    "org_city": "Galveston",
+    "org_leader": "Jane Doe",
+    "org_logo_path": "/static/images/logo1.png",
+    "org_description": "Ocean Conservancy is dedicated to protecting the ocean and its inhabitants. We organize beach cleanups, advocate for sustainable fishing practices, and promote ocean conservation worldwide.",
+    "org_leader_email": "jane.doe@oceanconservancy.org"
+  },
+  {
+    "org_id": "2",
+    "org_name": "High School Tutoring Program",
+    "org_city": "Bryan",
+    "org_leader": "John Smith",
+    "org_logo_path": "/static/images/logo2.png",
+    "org_description": "The High School Tutoring Program provides free tutoring services to high school students in the Bryan area. Our volunteers are passionate about education and committed to helping students achieve their academic goals.",
+    "org_leader_email": "john.smith@hstutoring.org"
+  },
+  {
+    "org_id": "3",
+    "org_name": "Texas A&M Graduate Student Association",
+    "org_city": "College Station",
+    "org_leader": "Emily Jones",
+    "org_logo_path": "/static/images/logo3.png",
+    "org_description": "The Texas A&M Graduate Student Association represents the interests of graduate students on campus. We organize social events, provide academic support, and advocate for graduate student rights.",
+    "org_leader_email": "emily.jones@gsa.tamu.edu"
+  },
+  {
+    "org_id": "4",
+    "org_name": "Texas A&M Diversity, Equity and Inclusion Office",
+    "org_city": "College Station",
+    "org_leader": "Carlos Rodriguez",
+    "org_logo_path": "/static/images/logo4.png",
+    "org_description": "The Texas A&M Diversity, Equity and Inclusion Office is committed to creating a welcoming and inclusive environment for all members of the Aggie community. We organize events, provide resources, and advocate for equity and justice.",
+    "org_leader_email": "carlos.rodriguez@tamu.edu"
+  },
+  {
+    "org_id": "5",
+    "org_name": "Aggie Food Drive",
+    "org_city": "College Station",
+    "org_leader": "Maria Sanchez",
+    "org_logo_path": "/static/images/logo5.png",
+    "org_description": "The Aggie Food Drive collects non-perishable food items from the local community and donates them to the Brazos Valley Food Bank. Our volunteers are passionate about fighting hunger and making a difference in the lives of those in need.",
+    "org_leader_email": "maria.sanchez@aggiefooddrive.org"
+  },
+  {
+    "org_id": "6",
+    "org_name": "Brazos Valley Animal Shelter",
+    "org_city": "Longview",
+    "org_leader": "David Lee",
+    "org_logo_path": "/static/images/logo6.png",
+    "org_description": "The Brazos Valley Animal Shelter provides care and shelter for homeless dogs and cats in the Longview area. Our volunteers help with feeding, grooming, and adoption events, and are committed to improving the lives of animals.",
+    "org_leader_email": "david.lee@bvshelter.org"
+  },
+  {
+      "org_id": 7,
+      "org_name": "Bryan ISD",
+      "org_city": "Bryan",
+      "org_leader": "John Smith",
+      "org_logo_path": "/static/images/logo7.png",
+      "org_description": "Bryan ISD is a school district that serves the city of Bryan and parts of College Station. We are committed to providing quality education to our students.",
+      "org_leader_email": "john.smith@bryanisd.org"
+    },
+    {
+      "org_id": 8,
+      "org_name": "Brazos Valley Food Bank",
+      "org_city": "Bryan",
+      "org_leader": "Jane Doe",
+      "org_logo_path": "/static/images/logo8.png",
+      "org_description": "The Brazos Valley Food Bank is a non-profit organization that provides food assistance to families in need in the Brazos Valley area.",
+      "org_leader_email": "jane.doe@bvfb.org"
+    },
+    {
+      "org_id": 9,
+      "org_name": "Houston Food Bank",
+      "org_city": "Houston",
+      "org_leader": "Mike Johnson",
+      "org_logo_path": "/static/images/logo9.png",
+      "org_description": "The Houston Food Bank is the largest food bank in the United States and provides food assistance to families in need in the greater Houston area.",
+      "org_leader_email": "mike.johnson@hfb.org"
+    },
+    {
+      "org_id": 10,
+      "org_name": "American Cancer Society",
+      "org_city": "College Station",
+      "org_leader": "Sara Williams",
+      "org_logo_path": "/static/images/logo10.png",
+      "org_description": "The American Cancer Society is a nationwide non-profit organization that is dedicated to eliminating cancer as a major health problem.",
+      "org_leader_email": "sara.williams@cancer.org"
+    }
+]
