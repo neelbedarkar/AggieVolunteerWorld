@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multi-step Sign Up Form</title>
+    <!-- Bootstrap 5.3 CSS -->
+      <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <link href="../static/css/main.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="../static/icons/bootstrap-icons.css" rel="stylesheet">
+<style>
+  /* custom checkbox styles */
+
+.form-check-input:checked {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  focus-border-color: #ffc107 !important;
+
+}
+
+.search-suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<main class="container">
+    <div class="container-fluid text-center mt-3">
+  <a href="/"> <img src="../static/images/logo.jpeg" alt="Your Logo" class="img-fluid mx-auto" style="max-width: 150px;"></a>
+</div>
+
+
+ <div class="row justify-content-center">
+  <div class="col-md-6 col-sm-10"><a href="/" class="btn btn-link align-self-start">
+      <i class="bi bi-arrow-left"></i> Go to the Home Page
+    </a>
+      <div class="progress d-none">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  </div>
+ </div>
+    <div class="row justify-content-center mb-3">
+   <div id="maincol" class="col-md-6 col-sm-10 login-col bg bg-light border border-light me-md-2 pt-2 px-2 pt-md-2 px-md-2 text-dark overflow-hidden">
+     <div id="step2" class="">
+         <div id="finish-message" class="cust">
+             <div class="section-header-secondary mb-0 pb-0" id="finish-title">
+                        <h2 class="display-5">Cannot Post Event</h2>
+          </div>
+        <div class="d-flex flex-column align-items-start">
+  <small class="text-left mb-3">Your profile is set as a volunteer only.
+      Please sign up with another account to set up your organization profile and post events</small>
+</div>
+         </div>
+         <button id="finish" class="btn btn-success">Sign Up</button>
+         </div>
+  </div>
+
+
+   </div>
+
+</main>
+<script src="../static/js/bootstrap.bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$('#finish').on('click', function() {
+  window.location.href = '/logout?forward=login';
+});
+</script>
+</body>
+</html>

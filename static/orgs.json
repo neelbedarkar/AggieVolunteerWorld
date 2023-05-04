@@ -1,4 +1,5 @@
-[
+{
+  "organizations": [
   {
     "org_id": "1",
     "org_name": "Ocean Conservancy",
@@ -90,3 +91,4 @@
       "org_leader_email": "sara.williams@cancer.org"
     }
 ]
+}

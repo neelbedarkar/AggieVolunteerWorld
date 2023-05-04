@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multi-step Sign Up Form</title>
+    <!-- Bootstrap 5.3 CSS -->
+      <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <link href="../static/css/main.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="../static/icons/bootstrap-icons.css" rel="stylesheet">
+<style>
+  /* custom checkbox styles */
+
+.form-check-input:checked {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  focus-border-color: #ffc107 !important;
+
+}
+
+.search-suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<main class="container">
+    <div class="container-fluid text-center mt-3">
+  <a href="/"> <img src="../static/images/logo.jpeg" alt="Your Logo" class="img-fluid mx-auto" style="max-width: 150px;"></a>
+</div>
+
+
+ <div class="row justify-content-center">
+  <div class="col-md-6 col-sm-10"><a href="/" class="btn btn-link align-self-start">
+      <i class="bi bi-arrow-left"></i> Go to the Home Page
+    </a>
+      <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  </div>
+ </div>
+    <div class="row justify-content-center mb-3">
+   <div id="maincol" class="col-md-6 col-sm-10 login-col bg bg-light border border-light me-md-2 pt-2 px-2 pt-md-2 px-md-2 text-dark overflow-hidden">
+    <div id="step1">
+        <div class="section-header-secondary mb-0 pb-0">
+                        <h2 class="display-5">Step 1: Personal Information</h2>
+                    </div>
+
+          <form id="step1-form">
+        <div class="mb-3">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="first-name" name="first-name" required>
+        </div>
+        <div class="mb-3">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="last-name" name="last-name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" disabled value="{{ session.email }}">
+        </div>
+        <div class="mb-3">
+            <label for="phone-number" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone-number" name="phone-number">
+        </div>
+        <div class="mb-3">
+            <label for="zip-code" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="zip-code" name="zip-code" required>
+        </div>
+
+    </form>
+    <button id="next1" class="btn btn-success mb-3">Next</button>
+</div>
+<div id="step2" class="d-none">
+  <div class="section-header-secondary mb-3 pb-0">
+    <h2 class="display-5">Step 2: Setup Volunteer Profile</h2>
+      </div>
+
+            <div class="d-flex flex-column align-items-start">
+                <small class="text-left mb-3">Setup your profile if you want to apply for opportunities as a volunteer.</small>
+</div>
+
+
+            <hr class="border border-warning border-2 opacity-100">
+
+<form id="step2-form">
+  <div class="mb-3">
+        <label class="form-label">Select the causes that align best with your interests</label>
+  <div class="row" id="cause-select">
+    <div class="col-md-6">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Animals" id="animalsCheck" name="animalsCheck">
+        <label class="form-check-label" for="animalsCheck">
+          Animals
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Education" id="educationCheck" name="educationCheck">
+        <label class="form-check-label" for="educationCheck">
+          Education
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Environment" id="environmentCheck" name="environmentCheck">
+        <label class="form-check-label" for="environmentCheck">
+          Environment
+        </label>
+      </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Poverty" id="povertyCheck" name="povertyCheck">
+        <label class="form-check-label" for="povertyCheck">
+          Poverty
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Health" id="healthCheck" name="healthCheck">
+        <label class="form-check-label" for="healthCheck">
+          Health
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Homelessness" id="homelessnessCheck" name="homelessnessCheck">
+        <label class="form-check-label" for="homelessnessCheck">
+          Homelessness
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Human Rights" id="humanRightsCheck" name="humanRightsCheck">
+        <label class="form-check-label" for="humanRightsCheck">
+          Human Rights
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Any" id="anyCheck" name="anyCheck">
+        <label class="form-check-label" for="anyCheck">
+          I am open to volunteer for any cause
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3">
+    <label for="work-preferences" class="form-label">Work Preferences</label>
+    <select class="form-select" id="work-preferences"  name="work-preferences" required>
+          <option selected>Select your work preference</option>
+      <option>Group Work</option>
+      <option>Individual Work</option>
+      <option>No Preference</option>
+    </select>
+  </div>
+    <div class="mb-3">
+    <label for="credentials" class="form-label">Credentials to Highlight on Your Profile</label>
+        <textarea class="form-control" id="credentials" name="credentials" rows="2" placeholder="Example:Leadership position at the Latin Club or Graduate Mentoring Academy Fellow"></textarea>
+  </div>
+<div class="mb-3">
+    <label for="volunteer-experience" class="form-label">Volunteering Experiences</label>
+    <textarea class="form-control" id="volunteer-experience" name="volunteer-experience" rows="5" placeholder="Write about your previous experiences as a volunteer" required></textarea>
+  </div>
+
+    </form>
+    <button id="back2" class="btn btn-secondary mb-3">Back</button>
+  <button id="next2" class="btn btn-success mb-3">Next</button>
+</div>
+
+
+     <div id="step3" class="d-none">
+         <div id="finish-message" class="cust">
+             <div class="section-header-secondary mb-0 pb-0" id="finish-title">
+                        <h2 class="display-5"> Congratulations!</h2>
+          </div>
+        <div class="d-flex flex-column align-items-start">
+  <small class="text-left mb-3">You have successfully completed your profile. Click on "Back" If you'd like to edit any information</small>
+</div>
+
+         </div>
+         <button id="back3" class="btn btn-secondary">Back</button>
+         <button id="finish" class="btn btn-success">Finish</button>
+         </div>
+  </div>
+
+
+   </div>
+
+</main>
+<script src="../static/js/bootstrap.bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    const progressBar = document.querySelector('.progress-bar');
+    const main_col = document.querySelector('#maincol');
+    const step1 = document.querySelector('#step1');
+    const step2 = document.querySelector('#step2');
+    const step3 = document.querySelector('#step3');
+
+    const next1 = document.querySelector('#next1');
+    const next2 = document.querySelector('#next2');
+
+    const back2 = document.querySelector('#back2');
+    const back3 = document.querySelector('#back3');
+
+
+
+    // Step 1 -> Step 2
+    next1.addEventListener('click', () => {
+        var step1_form = $('#step1-form')[0];
+        if (!step1_form.checkValidity()) {
+        step1_form.classList.add('was-validated');
+    }
+  else{
+
+    step1.classList.add('d-none');
+      step2.classList.remove('d-none');
+      progressBar.style.width = '50%';
+      progressBar.setAttribute('aria-valuenow', '50');
+  $.ajax({
+    url: '/submit_profile_all',
+    method: 'POST',
+    data: $('#step1-form').serialize(),
+    success: function(response) {
+      // handle success response here
+    },
+    error: function(xhr, status, error) {
+    }
+});
+  }
+    });
+
+    // Step 2 -> Step 1
+    back2.addEventListener('click', () => {
+      step2.classList.add('d-none');
+      step1.classList.remove('d-none');
+      progressBar.style.width = '50%';
+      progressBar.setAttribute('aria-valuenow', '50');
+    });
+
+// Step 2 -> Step 3
+    next2.addEventListener('click', () => {
+              var step2_form = $('#step2-form')[0];
+        if (!step2_form.checkValidity()) {
+        step2_form.classList.add('was-validated');
+    }
+  else{
+  $.ajax({
+    url: '/submit_profile_all',
+    method: 'POST',
+    data: $('#step2-form').serialize(),
+    success: function(response) {
+      // handle success response here
+    },
+    error: function(xhr, status, error) {
+    }
+});
+      step2.classList.add('d-none');
+      step3.classList.remove('d-none');
+      progressBar.style.width = '99%';
+      progressBar.setAttribute('aria-valuenow', '99');
+    }
+
+    });
+
+    // Step 3 -> Step 2
+    back3.addEventListener('click', () => {
+      step3.classList.add('d-none');
+      step2.classList.remove('d-none');
+      progressBar.style.width = '99%';
+      progressBar.setAttribute('aria-valuenow', '99');
+    });
+
+
+
+const anyCheck = document.getElementById("anyCheck");
+const causeSelect = document.getElementById("cause-select");
+
+// add event listener to anyCheck checkbox
+anyCheck.addEventListener("change", () => {
+  // if anyCheck is checked
+  if (anyCheck.checked) {
+    // disable all checkboxes within causeSelect div except anyCheck
+    const checkboxes = causeSelect.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      if (checkbox !== anyCheck) {
+        checkbox.disabled = true;
+      }
+    });
+  } else {
+    // enable all checkboxes within causeSelect div
+    const checkboxes = causeSelect.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.disabled = false;
+    });
+  }
+});
+
+$('#finish').on('click', function() {
+  window.location.href = '/';
+});
+</script>
+</body>
+</html>

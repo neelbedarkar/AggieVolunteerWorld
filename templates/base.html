@@ -67,15 +67,18 @@
                         <a class="nav-link" href="/help">Help</a>
                     </li>
                      {% if session.logged_in %}
-         <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="bi bi-person-circle align-middle fs-3"></span>
-  </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-    <li><a class="dropdown-item" href="/profile">View Profile</a></li>
-    <li><a class="dropdown-item" href="/logout">Logout</a></li>
-  </ul>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a></li>
+
+<!--         <li class="nav-item dropdown">-->
+<!--  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--    <span class="bi bi-person-circle align-middle fs-3"></span>-->
+<!--  </a>-->
+<!--    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">-->
+<!--    <li><a class="dropdown-item" href="/profile">View Profile</a></li>-->
+<!--    <li><a class="dropdown-item" href="/logout">Logout</a></li>-->
+<!--  </ul>-->
+
    {% else %}
       <li class="nav-item">
                         <a class="nav-link" href="/login">Login / Sign Up</a>
@@ -86,7 +89,29 @@
             </div>
         </div>
     </nav>
-
 {% block content %}{% endblock %}
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="messageToast" class="toast hide text-bg-light" data-bs-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Aggie Volunteer World</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        <span id="message"></span>
+    </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function() {
+console.log("{{ message }}");
+  if ("{{ message }}" !== "") {
+    // Do something if message exists
+    $("#messageToast").toast("show");
+    $("#message").text("{{ message }}");
+  }
+});
+
+</script>
 </body>
 </html>

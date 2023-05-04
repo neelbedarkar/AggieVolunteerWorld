@@ -89,11 +89,14 @@ def login():
     return render_template("login.html")
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
+    location = request.args.get('forward', default=None, type=str)
     session.pop("username", None)
     session.pop("logged_in", None)
     session.pop("email", None)
+    if location:
+        return redirect(url_for('login'))
     return render_template("index.html", message="Logged out", testimonials=testimonials)
 
 
@@ -104,6 +107,8 @@ def help():
 
 @app.route('/login_action', methods=['POST'])
 def login_action():
+    if "signup" not in session or not session["signup"]:
+        return render_template("login.html", message="You must sign up first")
     email = request.form.get('login-email-1', None)
     if not email:
         email = request.form.get('login-email-2', None)
@@ -118,19 +123,99 @@ def signup_action():
     if not email:
         email = request.form['signup2-email']
     session["email"] = email
-    session["logged_in"] = True
-    return render_template("index.html", message="Signed Up!", testimonials=testimonials)
+    with open('static/orgs.json') as f:
+        orgs = json.load(f)['organizations']
+    post_opportunities = request.form.get('post-opportunities')
+    post_opportunities2 = request.form.get('post-opportunities2')
+    if post_opportunities or post_opportunities2:
+        session['type'] = "org"
+        return render_template('sign_up_questions_both.html', orgs=orgs)
+    else:
+        session['type'] = "vol"
+        return render_template('sign_up_questions_volunteer.html', orgs=orgs)
+
 
 
 @app.route('/signup_2')
 def signup_2():
-    return render_template("sign_up_questions_both.html")
+    with open('static/orgs.json') as f:
+        orgs = json.load(f)['organizations']
+    return render_template("sign_up_questions_both.html", orgs=orgs)
+
+
+@app.route('/submit_profile_all', methods=['POST'])
+def submit_profile_all():
+    data = request.form.to_dict()
+    if 'first-name' in data and 'last-name' in data:
+        session['first_name'] = data['first-name']
+        session['last_name'] = data['last-name']
+    if 'volunteer-experience' in data and 'type' in session and session['type']=='vol':
+        print(data)
+    session["logged_in"] = True
+    session["signup"] = True
+    return 'Success'
+
+
+@app.route('/set_org', methods=['POST'])
+def set_org():
+    org_id = request.form.get('org_id')
+    print(org_id)
+    with open('static/orgs.json') as f:
+        orgs = json.load(f)['organizations']
+    session['org'] = orgs[int(org_id)]
+    session["logged_in"] = True
+    session["signup"] = True
+    return 'Org ID received: ' + org_id
+
+# "org_id": "1",
+#     "org_name": "Ocean Conservancy",
+#     "org_city": "Galveston",
+#     "org_leader": "Jane Doe",
+#     "org_logo_path": "/static/images/logo1.png",
+#     "org_description": "Ocean Conservancy is dedicated to protecting the ocean and its inhabitants. We organize beach cleanups, advocate for sustainable fishing practices, and promote ocean conservation worldwide.",
+#     "org_leader_email": "jane.doe@oceanconservancy.org"
+
+@app.route('/submit_org_all', methods=['POST'])
+def submit_org_all():
+    org_info= {"org_name":request.form['input-org-name'],
+    "org_city":request.form['input-org-city'],
+    "org_leader": session['first_name'] + " " + session['last_name'],
+    "org_logo_path" : "/static/images/logo10.png",
+    "org_description":  request.form['input-org-description']}
+    input_org_state = request.form['input-org-state']
+    session['org'] = org_info
+    print(org_info)
+    session["signup"] = True
+    session["logged_in"] = True
+    return "Success"
 
 
 @app.errorhandler(404)
 # inbuilt function which takes error as parameter
 def not_found(e):
     return render_template("404.html")
+
+
+@app.route('/post_opportunities')
+def post_opp():
+    if "signup" not in session or not session["signup"]:
+        return render_template("login.html", message="You must sign up first")
+    if 'logged_in' not in session or not session['logged_in']:
+        return render_template("login.html", message="You must sign up/login first")
+    if 'type' not in session:
+        return render_template("login.html", message="You must sign up first")
+    elif session['type'] != "org":
+        return render_template("post_opp_disallow.html")
+    else:
+        return render_template("post_opp.html")
+
+
+@app.route('/post_opp_submit', methods=['POST'])
+def post_opp_submit():
+    form_data = request.form.to_dict()
+    print(form_data)
+    return "Success"
+
 
 
 if __name__ == '__main__':

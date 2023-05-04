@@ -106,7 +106,6 @@
   </div>
   <button type="submit" class="btn btn-success mb-3 custom-button">Sign Up</button>
 </form>
-
             </div>
         </div>
     </div>
@@ -147,7 +146,6 @@
     <label class="form-check-label" for="rememberme-2">Remember Me</label>
   </div>
   <button type="submit" class="btn btn-warning mb-3 custom-button">Login</button>
-
                         </form>
             </div>
         </div>
@@ -198,7 +196,30 @@
 </main>
 <!-- Bootstrap Bundle with Popper and jQuery -->
 <script src="../static/js/bootstrap.bundle.min.js"></script>
-<script src="../static/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="messageToast" class="toast hide text-bg-light" data-bs-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Aggie Volunteer World</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        <span id="message"></span>
+    </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function() {
+console.log("{{ message }}");
+  if ("{{ message }}" !== "") {
+    // Do something if message exists
+    $("#messageToast").toast("show");
+    $("#message").text("{{ message }}");
+  }
+});
+
+</script>
 <script>
 
     const signupForms = document.querySelectorAll('.signup-form');
@@ -208,8 +229,6 @@
 signupForms.forEach(form => {
   form.addEventListener('submit', (event) => {
     // Prevent the default form submission behavior
-
-
     // Get the values of the password fields
     const password = form.elements['signup-password'].value;
     const repassword = form.elements['signup-repassword'].value;
