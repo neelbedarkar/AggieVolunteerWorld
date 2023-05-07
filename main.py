@@ -71,17 +71,17 @@ def discover():
 
     page_range = [x for x in range(1, number_of_pages + 1)]
     return render_template("discover_opportunities.html", opportunities=current_items, page=page, per_page=per_page,
-                           num_pages=number_of_pages, page_range=page_range)
+                           num_pages=number_of_pages, page_range=page_range, current_location="discover")
 
 
 @app.route("/")
 def index():
-    return render_template("index.html", testimonials=testimonials)
+    return render_template("index.html", testimonials=testimonials, current_location="home")
 
 
 @app.route("/about_us")
 def about_us():
-    return render_template("about_us.html")
+    return render_template("about_us.html", current_location="about")
 
 
 @app.route('/login')
@@ -97,12 +97,12 @@ def logout():
     session.pop("email", None)
     if location:
         return redirect(url_for('login'))
-    return render_template("index.html", message="Logged out", testimonials=testimonials)
+    return render_template("index.html", message="Logged out", testimonials=testimonials, current_location="home")
 
 
 @app.route('/help')
 def help():
-    return render_template("help.html")
+    return render_template("help.html", current_location="help")
 
 
 @app.route('/login_action', methods=['POST'])
@@ -114,7 +114,7 @@ def login_action():
         email = request.form.get('login-email-2', None)
     session["email"] = email
     session["logged_in"] = True
-    return render_template("index.html", message="Logged In!", testimonials=testimonials)
+    return render_template("index.html", message="Logged In!", testimonials=testimonials, current_location="home")
 
 
 @app.route('/signup_action', methods=['POST'])

@@ -1,35 +1,93 @@
 {% extends "base.html" %}
         {% block content %}
+<div class="col-xxl-12 px-4 py-5 border-bottom hero-image-alt text-white img-fluid align-bottom" style="height: 500px;">
+    <div class="row align-items-center g-5 py-5">
+        <div class="section-header text-center">
+       <h1 class="display-1">How Can We Help?</h1>
+      </div>
+    </div>
+  </div>
 
 <div class="bg-white py-5">
-  <div class="container py-5">
-    <div class="row align-items-center mb-5">
-      <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Volunteer For Local Events</h2>
+    <div class="container py-5">
+    <div class="row mb-5 justify-content-between row-cols-2  bg-light">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="section-header-secondary text-center">
+        <div class="display-4">Volunteer For Local Events</div>
+      </div>
+
         <p class="font-italic text-muted mb-4">
           Organizations from Brazos Valley, Houston, and Galveston post events on Aggie Volunteer World. Find the cause that matters to you and help your community!
         </p>
       </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="../static/images/Volunteer.jpeg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-5 pl-5 ml-auto order-1 order-lg-2"><img src="../static/images/Volunteer.jpeg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+
+        <div class="col-md-6 order-3  mt-5">
+    <h3 class="mb-3">Steps to Apply for Opportunities</h3>
+<div class="row">
+  <div class="col-md-12">
+    <div class="mb-3">
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-success text-white rounded-circle mr-2" style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">1</div>
+      <h5 class="m-3">Create an account</h5>
     </div>
-    <div class="row align-items-center">
-      <div class="col-lg-5 px-5 mx-auto"><img src="../static/images/NGO.jpeg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
-      <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Post Local Volunteer Events</h2>
-        <p class="font-italic text-muted mb-4">Aggies are eager to volunteer and want to find opportunities to do so. Does your organization need volunteers? Post your event and get volunteers from the best student body! </p>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>Create an account with email and password. <a href="/login">Sign up here</a> </p>
       </div>
     </div>
+      </div>
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-success text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">2</div>
+      <h5 class="m-3">Setup profile</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>Add your personal details and add your volunteering preferences and previous experiences</p>
+      </div>
+    </div>
+
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-success text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">3</div>
+      <h5 class="m-3">Search for Opportunities</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>
+            Find an opportunity that interests you <a href="/discover_opportunity">here</a>.
+        </p>
+      </div>
+    </div>
+
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-success text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">4</div>
+      <h5 class="m-3">Apply for an opportunity</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>
+            Once you find an opportunity, click on the "Apply" button to add a custom message to the organization and apply for the volunteering opportunity</a>.
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<section id="faq-us" class="py-5 bg-light">
-  <div class="container">
-       <div class="display-4 font-weight-light mb-3">Frequently Asked Questions</div>
-    <div class="row">
-      <div class="col-md-6">
-        <br>
-        <h4 class="mb-3">For Volunteers</h4>
-        <div class="accordion pt-3" id="faqAccordion-volunteer">
+  </div>
+  <div class="col-md-6 order-4 mt-5">
+    <h3 class="mb-3">Frequently asked Questions</h3>
+    <small>Click on each question to reveal the answer</small>
+    <div class="accordion pt-3" id="faqAccordion-volunteer">
           <div class="list-group">
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-1" role="button" aria-expanded="false" aria-controls="faq-volunteer-1">
               How do I find volunteer opportunities near my location?
@@ -39,7 +97,7 @@
                 You can use the search option on our website to browse a wide selection of volunteer opportunities in your region by entering your location. Based on your interests, abilities, and causes you are passionate about, you can filter the results.
               </div>
             </div>
-        
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-2" role="button" aria-expanded="false" aria-controls="faq-volunteer-2">
               Can I volunteer remotely or online?
             </a>
@@ -48,7 +106,7 @@
                 Yes, we provide online and remote volunteer opportunities. These are convenient for people with busy schedules or limited mobility because they let you donate your time and skills while remaining in the comfort of your own home. Through our website, you can look for remote volunteer opportunities and submit an application.
               </div>
             </div>
-        
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-3" role="button" aria-expanded="false" aria-controls="faq-volunteer-3">
               Do I need any specific skills or qualifications to volunteer?
             </a>
@@ -57,32 +115,104 @@
                 To help you identify the opportunity that best suits your skills and interests, we provide comprehensive information about each one, including the necessary qualifications.
               </div>
             </div>
-        
-            <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-3" role="button" aria-expanded="false" aria-controls="faq-volunteer-3">
+
+            <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-4" role="button" aria-expanded="false" aria-controls="faq-volunteer-4">
               How do I apply for a volunteer position?
             </a>
-            <div class="collapse" id="faq-volunteer-3">
+            <div class="collapse" id="faq-volunteer-4">
               <div class="list-group-item">
                 To apply for a volunteer position, just navigate to the opportunity listing on our website and click the "Apply" button. You can use this to assist you with the application procedure, which may require uploading your resume, filling out an online form, or answering specific questions. The organization will contact you directly to discuss the next steps after reviewing your application.
               </div>
             </div>
-        
-            <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-3" role="button" aria-expanded="false" aria-controls="faq-volunteer-3">
+
+            <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-volunteer-5" role="button" aria-expanded="false" aria-controls="faq-volunteer-5">
               Can I track my volunteer hours on the website?
             </a>
-            <div class="collapse" id="faq-volunteer-3">
+            <div class="collapse" id="faq-volunteer-5">
               <div class="list-group-item">
                 Yes, registered users of our website have access to a feature that allows them to track and log their volunteer hours. You may quickly log the number of hours you've volunteered, the organizations you've worked with, and any other information you'd like to include after registering and creating an account. You can use this feature to maintain track of your contributions, which might be helpful for future references or verification.
               </div>
             </div>
           </div>
         </div>
+  </div>
+    </div>
+
+    <div class="row mb-5 justify-content-between row-cols-2 bg-light">
+      <div class="col-lg-5 pr-5 mr-auto"><img src="../static/images/NGO.jpeg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-6">
+        <div class="section-header-secondary text-center">
+        <div class="display-4">Post Local Volunteer Events</div>
       </div>
-      
-      <div class="col-md-6">
-        <br>
-        <h4 class="mb-3">For Providers</h4>
-        <div class="accordion pt-3" id="faqAccordion-volunteer">
+        <p class="font-italic text-muted mb-4">Aggies are eager to volunteer and want to find opportunities to do so. Does your organization need volunteers? Post your event and get volunteers from the best student body! </p>
+      </div>
+            <div class="col-md-6 order-4  mt-5">
+    <h3 class="mb-3">Steps to Post Opportunities </h3>
+<div class="row">
+  <div class="col-md-12">
+    <div class="mb-3">
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-warning text-white rounded-circle mr-2" style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">1</div>
+      <h5 class="m-3">Create an account</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>Create an account with email and password. <a href="/login">Sign up here.</a> Ensure that you select the "I want to post opportunities as part of an organization" checkbox while creating an account</p>
+      </div>
+    </div>
+
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-warning text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">2</div>
+      <h5 class="m-3">Setup profile</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>Add your personal details on after creating an account. You will also be prompted to add optional volunteering preferences if you want to volunteer for events hosted by other organizations</p>
+      </div>
+    </div>
+
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-warning text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">3</div>
+      <h5 class="m-3">Setup your organization </h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>
+           During the sign-up process, you will be asked to either add yourselves to an organization already part of the platform or create a new organization that you would manage.
+        </p>
+      </div>
+    </div>
+
+     <hr>
+
+      <div class="d-flex flex-row align-items-center">
+      <div class="p-2 bg-warning text-white rounded-circle mr-2"
+           style="width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;">4</div>
+      <h5 class="m-3">Post an opportunity</h5>
+    </div>
+    <div class="d-flex flex-row">
+      <div class="flex-grow-1">
+        <p>
+            Once you create a profile, navigate to the <a href="/post_opportunities">Post Opportunities</a> page to add an event/opportunity for volunteers to sign up.
+        </p>
+      </div>
+    </div>
+
+  </div>
+     </div>
+</div>
+
+  </div>
+  <div class="col-md-6 order-3 mt-5">
+    <h3 class="mb-3">Frequently asked Questions</h3>
+    <small>Click on each question to reveal the answer</small>
+    <div class="accordion pt-3" id="faqAccordion-provider">
           <div class="list-group">
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-1" role="button" aria-expanded="false" aria-controls="faq-provider-1">
               What types of programs do you offer?
@@ -92,7 +222,7 @@
                 We offer a variety of programs focused on health and wellness, education, community outreach, and more.
               </div>
             </div>
-        
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-2" role="button" aria-expanded="false" aria-controls="faq-provider-2">
               How can I get involved with volunteering?
             </a>
@@ -101,7 +231,7 @@
                 We have a range of volunteer opportunities available, including one-time events and ongoing programs.
               </div>
             </div>
-        
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-3" role="button" aria-expanded="false" aria-controls="faq-provider-3">
               Who can participate in your programs?
             </a>
@@ -110,7 +240,7 @@
                 Our programs are open to individuals of all ages and backgrounds. We welcome anyone who is interested in giving back to the community.
               </div>
             </div>
-        
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-4" role="button" aria-expanded="false" aria-controls="faq-provider-4">
               How can I partner with your organization?
             </a>
@@ -119,7 +249,7 @@
                 We are always looking for new partners to help support our mission. You can do this by creating an account for your organization with us and posting any volunteering oppurtunities available
               </div>
             </div>
-            
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-5" role="button" aria-expanded="false" aria-controls="faq-provider-5">
               Can I receive community service hours for volunteering?
             </a>
@@ -128,7 +258,7 @@
                 Yes, we are happy to provide community service hours for volunteers who need them. Just let us know when you show up to volunteer.
               </div>
             </div>
-            
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-6" role="button" aria-expanded="false" aria-controls="faq-provider-6">
               How do I sign up to volunteer?
             </a>
@@ -137,7 +267,7 @@
                 You can sign up to volunteer on our website. Simply create an account and browse our available volunteer opportunities.
               </div>
             </div>
-            
+
             <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#faq-provider-7" role="button" aria-expanded="false" aria-controls="faq-provider-7">
               How do I contact your organization for more information?
             </a>
@@ -148,11 +278,28 @@
             </div>
           </div>
         </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact-us" class="py-5 bg-light">
+  <div class="container">
+       <div class="display-4 font-weight-light mb-3">Need more help? Contact Us</div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="mb-3">Email</h4>
+        <p><a href="mailto:aggievolunteerworld@gmail.com">aggievolunteerworld@gmail.com</a></p>
+      </div>
+      <div class="col-md-6">
+        <h4 class="mb-3">Phone</h4>
+        <p>979-111-1111</p>
       </div>
     </div>
   </div>
 </section>
 
-<script src="../static/js/bootstrap.bundle.min.js"></script>
-<script src="../static/js/main.js"></script>
+
+<script src="../static/js/bootstrap.bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 {% endblock %}
